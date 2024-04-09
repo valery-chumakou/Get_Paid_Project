@@ -3,7 +3,12 @@ package org.getpaid.get_paid_project;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 
 public class Pop_Up_Controller {
@@ -11,14 +16,27 @@ public class Pop_Up_Controller {
     private Button add_btn;
     @FXML
     private Button exist_btn;
-    public void selection() {
-        add_btn.setOnAction(new EventHandler<>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                System.out.println("New Scene here");
-            }
-        });
+
+    /*---method which ask the user to choose between existing user and new user---*/
+     @FXML
+     private void handleButtons(ActionEvent actionEvent) throws Exception {
+         Stage stage;
+         Parent root;
+
+         if (actionEvent.getSource()==add_btn) {
+             stage = (Stage)add_btn.getScene().getWindow();
+             root = FXMLLoader.load(getClass().getResource("register.fxml"));
+         } else {
+             stage = (Stage)exist_btn.getScene().getWindow();
+             root = FXMLLoader.load(getClass().getResource("existing.fxml"));
+         }
+         Scene scene = new Scene(root);
+         stage.setScene(scene);
+         stage.show();
     }
+
+
+    /*--------------method finished-------------------*/
 }
 
 

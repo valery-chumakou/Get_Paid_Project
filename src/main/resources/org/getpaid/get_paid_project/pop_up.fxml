@@ -7,7 +7,7 @@
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="229.0" prefWidth="433.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.getpaid.get_paid_project.Pop_Up_Controller">
    <children>
       <Button fx:id="add_btn" layoutX="100.0" layoutY="121.0" mnemonicParsing="false" onAction="#handleButtons" text="Register" />
-      <Button fx:id="exist_btn" layoutX="241.0" layoutY="121.0" mnemonicParsing="false" onAction="#handleButtons"  text="Log In" />
+      <Button fx:id="exist_btn" layoutX="241.0" layoutY="121.0" mnemonicParsing="false" onAction="#handleButtons" text="Log In" />
       <Label layoutX="100.0" layoutY="51.0" prefHeight="57.0" prefWidth="224.0" text="Hello, welcome to getPaid, please select" />
    </children>
 </Pane>

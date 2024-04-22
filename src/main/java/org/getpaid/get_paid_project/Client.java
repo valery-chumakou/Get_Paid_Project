@@ -1,5 +1,4 @@
 package org.getpaid.get_paid_project;
-
 import java.time.LocalDate;
 
 public class Client {

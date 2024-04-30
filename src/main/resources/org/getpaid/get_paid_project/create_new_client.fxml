@@ -47,58 +47,58 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.getpaid.get_paid_project.Add_Client_Window_Controller">
-  <children>
-    <MenuBar VBox.vgrow="NEVER">
-      <menus>
-        <Menu mnemonicParsing="false" text="File">
-          <items>
-            <MenuItem mnemonicParsing="false" text="New" />
-            <MenuItem mnemonicParsing="false" text="Open…" />
-            <Menu mnemonicParsing="false" text="Open Recent" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Close" />
-            <MenuItem mnemonicParsing="false" text="Save" />
-            <MenuItem mnemonicParsing="false" text="Save As…" />
-            <MenuItem mnemonicParsing="false" text="Revert" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Preferences…" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Quit" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Edit">
-          <items>
-            <MenuItem mnemonicParsing="false" text="Undo" />
-            <MenuItem mnemonicParsing="false" text="Redo" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Cut" />
-            <MenuItem mnemonicParsing="false" text="Copy" />
-            <MenuItem mnemonicParsing="false" text="Paste" />
-            <MenuItem mnemonicParsing="false" text="Delete" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Select All" />
-            <MenuItem mnemonicParsing="false" text="Unselect All" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Help">
-          <items>
-            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
-          </items>
-        </Menu>
-      </menus>
-    </MenuBar>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
-      <children>
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.getpaid.get_paid_project.create_new_client_controller">
+   <children>
+      <MenuBar VBox.vgrow="NEVER">
+         <menus>
+            <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="New" />
+                  <MenuItem mnemonicParsing="false" text="Open…" />
+                  <Menu mnemonicParsing="false" text="Open Recent" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Close" />
+                  <MenuItem mnemonicParsing="false" text="Save" />
+                  <MenuItem mnemonicParsing="false" text="Save As…" />
+                  <MenuItem mnemonicParsing="false" text="Revert" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Preferences…" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Quit" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Edit">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Undo" />
+                  <MenuItem mnemonicParsing="false" text="Redo" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Cut" />
+                  <MenuItem mnemonicParsing="false" text="Copy" />
+                  <MenuItem mnemonicParsing="false" text="Paste" />
+                  <MenuItem mnemonicParsing="false" text="Delete" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Select All" />
+                  <MenuItem mnemonicParsing="false" text="Unselect All" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+         <children>
             <Pane layoutX="3.0" layoutY="4.0" prefHeight="368.0" prefWidth="633.0">
                <children>
                   <Button layoutX="529.0" layoutY="14.0" mnemonicParsing="false" text="Save Progress" />
                   <TableView fx:id="clients_table" layoutX="227.0" layoutY="46.0" prefHeight="200.0" prefWidth="391.0">
-                    <columns>
-                      <TableColumn fx:id="col_name" prefWidth="127.3333740234375" text="Name" />
+                     <columns>
+                        <TableColumn fx:id="col_name" prefWidth="127.3333740234375" text="Name" />
                         <TableColumn fx:id="col_status" prefWidth="128.0" text="Current Status" />
-                      <TableColumn fx:id="col_filingDate" prefWidth="90.0" text="Filing Date" />
-                    </columns>
+                        <TableColumn fx:id="col_filingDate" prefWidth="90.0" text="Filing Date" />
+                     </columns>
                   </TableView>
                   <TextField fx:id="client_name" layoutX="59.0" layoutY="95.0" />
                   <Label layoutX="9.0" layoutY="95.0" prefHeight="25.0" prefWidth="54.0" text="Name" />
@@ -106,17 +106,17 @@
                   <Label layoutX="9.0" layoutY="172.0" prefHeight="25.0" prefWidth="54.0" text="Status" />
                   <DatePicker fx:id="filing_date" layoutX="62.0" layoutY="134.0" prefHeight="25.0" prefWidth="143.0" />
                   <Label layoutX="3.0" layoutY="134.0" prefHeight="25.0" prefWidth="67.0" text="Filing Date" />
-                  <Button fx:id="add_client_name" layoutX="55.0" layoutY="221.0" mnemonicParsing="false" onAction="#add_user" text="Add client" />
-                  <Button fx:id="delete_btn" layoutX="49.0" layoutY="264.0" mnemonicParsing="false" onAction="#delete" text="Delete client" />
-              <Label fx:id="greeting" alignment="CENTER" layoutX="22.0" layoutY="13.0" prefHeight="27.0" prefWidth="136.0" style="&#10;" text=" " textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
-                <font>
-                  <Font size="18.0" />
-                </font>
-              </Label>
+                  <Button fx:id="add_client_name" layoutX="55.0" layoutY="221.0" mnemonicParsing="false"   text="Add client" />
+                  <Button fx:id="delete_btn" layoutX="49.0" layoutY="264.0" mnemonicParsing="false"  text="Delete client" />
+                  <Label fx:id="greeting" alignment="CENTER" layoutX="22.0" layoutY="13.0" prefHeight="27.0" prefWidth="136.0" style="&#10;" text=" " textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
                   <Label fx:id="current_time" layoutX="14.0" layoutY="46.0" prefHeight="27.0" prefWidth="119.0" text=" " />
                </children>
             </Pane>
-      </children>
-    </AnchorPane>
-  </children>
+         </children>
+      </AnchorPane>
+   </children>
 </VBox>

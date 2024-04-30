@@ -36,16 +36,16 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.getpaid.get_paid_project.clients_list_controller">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -86,31 +86,34 @@
         </Menu>
       </menus>
     </MenuBar>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
       <children>
-            <MenuButton fx:id="legal_actions" layoutX="14.0" layoutY="59.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" text="MenuButton">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Court appearance" />
-                <MenuItem mnemonicParsing="false" text="Phone call" />
-              </items>
-            </MenuButton>
-            <Button fx:id="add_action" layoutX="24.0" layoutY="178.0" mnemonicParsing="false" text="Add" />
-            <TextField fx:id="att_time" layoutX="104.0" layoutY="117.0" prefHeight="25.0" prefWidth="70.0" />
-            <Label layoutX="14.0" layoutY="121.0" text="Attornye's time" />
-            <Label layoutX="14.0" layoutY="142.0" text="Paralegal's time" />
-            <TextField fx:id="para_time" layoutX="104.0" layoutY="147.0" prefHeight="25.0" prefWidth="70.0" />
-            <TableView fx:id="client_billing" layoutX="239.0" layoutY="21.0" prefHeight="200.0" prefWidth="397.0">
-              <columns>
-                  <TableColumn prefWidth="105.99998474121094" text="Item" />
-                  <TableColumn prefWidth="109.33331298828125" text="Hours" />
-                <TableColumn prefWidth="75.99996948242188" text="Rate" />
-                  <TableColumn prefWidth="65.33331298828125" text="Amount" />
-              </columns>
-            </TableView>
-            <Label fx:id="total_$" layoutX="362.0" layoutY="221.0" prefHeight="17.0" prefWidth="102.0" text=" " />
-            <Label layoutX="246.0" layoutY="221.0" text="total $" />
-            <Label fx:id="total_hours" layoutX="384.0" layoutY="237.0" prefHeight="17.0" prefWidth="102.0" text=" " />
-            <Label layoutX="246.0" layoutY="237.0" text="total hours" />
+            <Pane layoutX="3.0" layoutY="4.0" prefHeight="368.0" prefWidth="633.0">
+               <children>
+                  <TableView fx:id="clients_table" layoutX="17.0" layoutY="49.0" prefHeight="203.0" prefWidth="601.0">
+                    <columns>
+                      <TableColumn fx:id="col_name" prefWidth="141.0" text="Name" />
+                        <TableColumn fx:id="col_chapter" prefWidth="53.0" text="Chapter" />
+                        <TableColumn fx:id="col_type" prefWidth="90.0" text="Type" />
+                        <TableColumn fx:id="col_status" prefWidth="108.0" text="Current Status" />
+                      <TableColumn fx:id="col_filingDate" prefWidth="103.0" text="Filing Date" />
+                        <TableColumn fx:id="col_of_no" minWidth="0.0" prefWidth="91.0" text="Office No." />
+                    </columns>
+                  </TableView>
+                  <Button fx:id="forms_btn" layoutX="22.0" layoutY="329.0" mnemonicParsing="false" text="Forms" />
+                  <Button fx:id="create_new_client" layoutX="77.0" layoutY="329.0" mnemonicParsing="false" text="New Client" />
+              <Label fx:id="greeting" alignment="CENTER" layoutX="22.0" layoutY="13.0" prefHeight="27.0" prefWidth="136.0" style="&#10;" text=" " textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
+                <font>
+                  <Font size="18.0" />
+                </font>
+              </Label>
+                  <Label fx:id="current_time" layoutX="168.0" layoutY="13.0" prefHeight="27.0" prefWidth="119.0" text=" " />
+                  <Label fx:id="disp_name" layoutX="17.0" layoutY="267.0" prefHeight="25.0" prefWidth="119.0" text=" " />
+                  <Label fx:id="disp_status" layoutX="158.0" layoutY="267.0" prefHeight="25.0" prefWidth="119.0" text=" " />
+                  <Button fx:id="delete_btn" layoutX="158.0" layoutY="329.0" mnemonicParsing="false" text="Delete" />
+                  <Button fx:id="biling_btn" layoutX="218.0" layoutY="329.0" mnemonicParsing="false" text="Biling" />
+               </children>
+            </Pane>
       </children>
     </AnchorPane>
   </children>

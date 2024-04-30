@@ -52,7 +52,7 @@ public class Existing_Controller {
         con.close();
 
         if (userFound) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("add_client.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("clients_list.fxml"));
             Parent root = loader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root));

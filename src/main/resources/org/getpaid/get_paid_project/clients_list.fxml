@@ -101,7 +101,7 @@
                     </columns>
                   </TableView>
                   <Button fx:id="forms_btn" layoutX="22.0" layoutY="329.0" mnemonicParsing="false" text="Forms" />
-                  <Button fx:id="create_new_client" layoutX="77.0" layoutY="329.0" mnemonicParsing="false" text="New Client" />
+                  <Button fx:id="create_new_client" layoutX="77.0" layoutY="329.0" mnemonicParsing="false" onAction="#add_client_btn" text="New Client" />
               <Label fx:id="greeting" alignment="CENTER" layoutX="22.0" layoutY="13.0" prefHeight="27.0" prefWidth="136.0" style="&#10;" text=" " textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
                 <font>
                   <Font size="18.0" />

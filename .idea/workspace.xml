@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20c46208-ec33-4a29-ad6f-6184ed00a5c1" name="Changes" comment="class to calculate attorney's and paralegal's time added.">
+    <list default="true" id="20c46208-ec33-4a29-ad6f-6184ed00a5c1" name="Changes" comment="refactored client_table">
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/Add_Client_Window_Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/Client.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/Existing_Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/Existing_Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/client_space_controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/mysqlconnect.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/add_client.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/client_space.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/clients_list_controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/create_new_client_controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/clients_list.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/clients_list.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/create_new_client.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/create_new_client.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +163,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713790148254</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="refactored client_table">
+      <option name="closed" value="true" />
+      <created>1714481697371</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1714481697371</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -174,6 +180,7 @@
     <MESSAGE value="The Register class has been added, which allows the user to register a new user. Additionally, a hash method has been implemented to securely store passwords." />
     <MESSAGE value="Method to add user to table and database, method to delete user from database and table are added." />
     <MESSAGE value="class to calculate attorney's and paralegal's time added." />
-    <option name="LAST_COMMIT_MESSAGE" value="class to calculate attorney's and paralegal's time added." />
+    <MESSAGE value="refactored client_table" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactored client_table" />
   </component>
 </project>

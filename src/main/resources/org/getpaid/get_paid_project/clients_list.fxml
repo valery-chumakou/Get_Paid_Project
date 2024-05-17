@@ -40,7 +40,6 @@
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -86,8 +85,7 @@
         </Menu>
       </menus>
     </MenuBar>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
-      <children>
+
             <Pane layoutX="3.0" layoutY="4.0" prefHeight="368.0" prefWidth="633.0">
                <children>
                   <TableView fx:id="clients_table" layoutX="17.0" layoutY="49.0" prefHeight="203.0" prefWidth="601.0">
@@ -115,6 +113,5 @@
                </children>
             </Pane>
       </children>
-    </AnchorPane>
-  </children>
+
 </VBox>

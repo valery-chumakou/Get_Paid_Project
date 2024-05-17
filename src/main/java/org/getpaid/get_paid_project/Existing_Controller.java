@@ -6,62 +6,82 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.io.IOException;
+import java.sql.*;
 
 public class Existing_Controller {
-
-    @FXML
-    private Button login_btn;
     @FXML
     private TextField existing_username;
     @FXML
     private PasswordField existing_password;
 
-    private void handleExistingUser(ActionEvent event) throws  Exception {
-        FXMLLoader loader = new FXMLLoader();
-        Stage stage = new Stage();
-        loader.setLocation(getClass().getResource("existing.fxml"));
-        Parent root1 = loader.load();
-    }
 
-    /*method to retrieve users_info from database*/
-    public void checkExistingUser (ActionEvent event) throws  Exception {
+    @FXML
+    public User handleExistingUser() throws SQLException, IOException {
         String name = existing_username.getText();
         String password = existing_password.getText();
         boolean userFound = false;
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/getPaid", "root", "BostonVenyaGlobe9357");
-        String sql = "SELECT * FROM users_info WHERE username = ? AND password=?";
-        PreparedStatement ps = con.prepareStatement(sql);
-        ps.setString(1,name);
-        ps.setString(2, password);
-        ResultSet resultSet = ps.executeQuery();
-        if (resultSet.next()) {
-            userFound = true;
-            System.out.println("User exist");
-        }
 
-        ps.close();
-        con.close();
+        if (!name.isEmpty() && !password.isEmpty()) {
+            try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/getPaid", "root", "BostonVenyaGlobe9357");
+                 PreparedStatement ps = con.prepareStatement("SELECT * FROM users_info WHERE username = ? AND password = ?")) {
 
-        if (userFound) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("clients_list.fxml"));
-            Parent root = loader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.show();
-            ((Node)
-                    (event.getSource())).getScene().getWindow().hide();
+                ps.setString(1, name);
+                ps.setString(2, password);
+
+                try (ResultSet resultSet = ps.executeQuery()) {
+                    if (resultSet.next()) {
+                        userFound = true;
+                    }
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+                // Handle any SQL exception
+            }
+
+            if (userFound) {
+                User authenticatedUser = new User(name);
+                UserStore.setLoggedInUser(authenticatedUser.getName());
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("clients_list.fxml"));
+                Parent root = loader.load();
+                Stage stage = new Stage();
+                clients_list_controller controller = loader.getController();
+                controller.setLoggedInUser(authenticatedUser.getName());
+                controller.populateTable(); // Refresh the table with client data
+                stage.setScene(new Scene(root));
+                stage.show();
+
+                // Close the current window - optional
+                Stage currentStage = (Stage) existing_username.getScene().getWindow();
+                currentStage.close();
+
+                return authenticatedUser;
+            } else {
+                System.out.println("User not found");
+                return null;
+            }
         } else {
-            System.out.println("User doesn't exist");
+            System.out.println("Username or password is empty");
+            return null;
         }
     }
 
+    public void loadNewScene() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("clients_list.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        clients_list_controller controller = loader.getController();
+        controller.populateTable(); // Refresh the table with client data
+        stage.setScene(new Scene(root));
+        stage.show();
+
+        // Close the current window - optional
+        Stage currentStage = (Stage) existing_username.getScene().getWindow();
+        currentStage.close();
+    }
 }

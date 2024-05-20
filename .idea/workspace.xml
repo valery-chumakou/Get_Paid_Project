@@ -6,8 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="20c46208-ec33-4a29-ad6f-6184ed00a5c1" name="Changes" comment="added billing for clients">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2024-05-18.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/billing_table.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/invoice.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/invoice.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/Billing_controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/Billing_controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/Calculation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/Calculation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/billing.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/billing.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/calculation.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/calculation.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,26 +51,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.GenerateInvoice.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Pop_Up.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Progress.executor&quot;: &quot;Run&quot;,
-    &quot;Application.client_space_controller.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Valery Chumakou/OneDrive/Desktop/poi-bin-5.2.3/ooxml-lib/xmlbeans-5.1.1.jar&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.GenerateInvoice.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.Pop_Up.executor": "Run",
+    "Application.Progress.executor": "Run",
+    "Application.client_space_controller.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Valery Chumakou/OneDrive/Documents/Java Projects/Get_Paid_Project/poi-bin-5.2.3/ooxml-lib/xmlbeans-5.1.1.jar",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="org.getpaid.get_paid_project" />
@@ -205,7 +210,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715918459821</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="added billing for clients">
+      <option name="closed" value="true" />
+      <created>1716146581005</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1716146581005</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

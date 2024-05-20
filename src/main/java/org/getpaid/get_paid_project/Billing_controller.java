@@ -34,7 +34,30 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import com.itextpdf.layout.element.Table;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.*;
+import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
+import javafx.concurrent.WorkerStateEvent;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.net.URL;
+import java.sql.*;
  import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -299,7 +322,38 @@ public class Billing_controller {
             }
         }
     }
+    @FXML
+    public void generatePdf(ActionEvent event) throws FileNotFoundException, DocumentException {
+        // Define the PDF document structure
+        Document document = new Document();
+        PdfWriter.getInstance(document, new FileOutputStream("invoice.pdf"));
 
+        // Retrieve data from the table
+        TableView<Billing> tableView = billing_table;
+        TableColumn<Billing, String> column = (TableColumn<Billing, String>) tableView.getColumns().get(0);
+        ObservableList<Billing> data = tableView.getItems();
+        List<String> dataStrings = new ArrayList<>();
+
+        for (Billing billing : data) {
+            String dataString = column.getCellObservableValue(billing).getValue();
+            dataStrings.add(dataString);
+        }
+
+        // Create a PDF table
+        PdfPTable table = new PdfPTable(new float[]{1, 2, 3});
+
+        for (int i = 0; i < dataStrings.size(); i++) {
+            PdfPCell cell = new PdfPCell();
+            cell.setPhrase(new Phrase(dataStrings.get(i)));
+            table.addCell(cell);
+        }
+
+        // Add the table to the PDF document
+        document.add(new Paragraph(String.valueOf(billing_table)));
+
+        // Close the PDF document
+        document.close();
+    }
 
 
 

@@ -6,6 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Pop_Up extends Application {
@@ -13,8 +15,12 @@ public class Pop_Up extends Application {
     /*-----start method entry point of JavaFX program-----*/
     public void start(Stage primaryStage) throws Exception {
         Scene scene = new Scene(loadFXML("pop_up"));
-        primaryStage.setScene(scene);
-        primaryStage.setResizable(false);
+         primaryStage.setScene(scene);
+         primaryStage.setHeight(500);
+         primaryStage.setWidth(500);
+
+
+
 
     }
     /*------------end of start method--------------------*/

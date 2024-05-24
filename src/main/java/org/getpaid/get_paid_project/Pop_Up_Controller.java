@@ -5,7 +5,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+
+import static com.itextpdf.text.pdf.PdfFileSpecification.url;
 
 public class Pop_Up_Controller {
     @FXML
@@ -13,7 +16,6 @@ public class Pop_Up_Controller {
     @FXML
     private Button exist_btn;
 
-    /*---method which ask the user to choose between existing user and new user---*/
      @FXML
      private void handleButtons(ActionEvent actionEvent) throws Exception {
          Stage stage;
@@ -29,7 +31,10 @@ public class Pop_Up_Controller {
          Scene scene = new Scene(root);
          stage.setScene(scene);
          stage.show();
-    }
+
+
+
+     }
 
 
     /*--------------method finished-------------------*/

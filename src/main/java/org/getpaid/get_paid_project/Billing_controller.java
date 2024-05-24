@@ -323,38 +323,45 @@ public class Billing_controller {
         }
     }
     @FXML
-    public void generatePdf(ActionEvent event) throws FileNotFoundException, DocumentException {
-        // Define the PDF document structure
-        Document document = new Document();
-        PdfWriter.getInstance(document, new FileOutputStream("invoice.pdf"));
+    public void generatePdf(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        File file = fileChooser.showSaveDialog(null);
+        if (file != null) {
+            try {
+                File directory = new File(file.getParent());
+                if (!directory.exists()) {
+                    directory.mkdirs();
+                }
 
-        // Retrieve data from the table
-        TableView<Billing> tableView = billing_table;
-        TableColumn<Billing, String> column = (TableColumn<Billing, String>) tableView.getColumns().get(0);
-        ObservableList<Billing> data = tableView.getItems();
-        List<String> dataStrings = new ArrayList<>();
+                Document document = new Document();
+                FileOutputStream fileOutputStream = new FileOutputStream(file);
+                PdfWriter.getInstance(document, fileOutputStream);
+                document.open(); // Open the document before adding content
 
-        for (Billing billing : data) {
-            String dataString = column.getCellObservableValue(billing).getValue();
-            dataStrings.add(dataString);
+                PdfPTable table = new PdfPTable(new float[]{1, 2, 3,4,5});
+                table.addCell("Office Number");
+                table.addCell("Rate");
+                table.addCell("Tasks");
+                table.addCell("Time Spent");
+                table.addCell("User");
+
+                for (Billing billing : billingList) {
+                    table.addCell(String.valueOf(billing.getOfficeNo()));
+                    table.addCell(String.valueOf(billing.getRate()));
+                    table.addCell(billing.getTasks());
+                    table.addCell(String.valueOf(billing.getTimeSpent()));
+                    table.addCell(billing.getUser());
+                }
+
+                document.add(table);
+                document.close();
+            } catch (IOException e) {
+                System.out.println("Error generating PDF: " + e.getMessage());
+            } catch (DocumentException e) {
+                System.out.println("Error generating PDF: " + e.getMessage());
+            }
         }
-
-        // Create a PDF table
-        PdfPTable table = new PdfPTable(new float[]{1, 2, 3});
-
-        for (int i = 0; i < dataStrings.size(); i++) {
-            PdfPCell cell = new PdfPCell();
-            cell.setPhrase(new Phrase(dataStrings.get(i)));
-            table.addCell(cell);
-        }
-
-        // Add the table to the PDF document
-        document.add(new Paragraph(String.valueOf(billing_table)));
-
-        // Close the PDF document
-        document.close();
     }
-
 
 
         public void setLoggedInUser (String user) {

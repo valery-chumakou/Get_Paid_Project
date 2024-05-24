@@ -9,6 +9,7 @@ public class Billing {
     private String user;
     private Integer officeNo;
 
+
     public Billing(Integer rate, String tasks, Integer timeSpent, String user, Integer officeNo) {
         this.rate = rate;
         this.tasks = tasks;
@@ -17,10 +18,16 @@ public class Billing {
         this.officeNo = officeNo;
     }
 
+    public Billing () {
+
+    }
     public Billing(TextField rateField, TextField tasksField, String name, Integer officeNumber) {
     }
 
     public Billing(int officeNumber, String tasks, int timeSpent, int rate) {
+    }
+    public Billing(int officeNo, String rate) {
+
     }
 
     public String getTasks() {
@@ -51,7 +58,7 @@ public class Billing {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(String user) {
         this.user = String.valueOf(user);
     }
 

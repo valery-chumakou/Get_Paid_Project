@@ -10,24 +10,24 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="380.0" prefWidth="580.0" styleClass="body" stylesheets="@new_client.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.getpaid.get_paid_project.create_new_client_controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="380.0" prefWidth="580.0" styleClass="body" stylesheets="@new_client.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.getpaid.get_paid_project.Edit_client">
    <children>
       <Button fx:id="save_btn" layoutX="384.0" layoutY="326.0" mnemonicParsing="false" onAction="#saveClient" prefHeight="25.0" prefWidth="78.0" styleClass="save_btn" stylesheets="@new_client.css" text="Save" />
       <GridPane layoutX="34.0" layoutY="47.0" prefHeight="264.0" prefWidth="489.0" styleClass="panel" stylesheets="@new_client.css">
-        <columnConstraints>
+         <columnConstraints>
             <ColumnConstraints fillWidth="false" halignment="LEFT" hgrow="SOMETIMES" maxWidth="122.33329518636069" minWidth="10.0" prefWidth="122.33329518636069" />
-          <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="199.99995930989584" minWidth="10.0" prefWidth="123.66670481363931" />
-          <ColumnConstraints fillWidth="false" halignment="RIGHT" hgrow="SOMETIMES" maxWidth="163.33331298828128" minWidth="10.0" prefWidth="123.33335367838544" />
+            <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="199.99995930989584" minWidth="10.0" prefWidth="123.66670481363931" />
+            <ColumnConstraints fillWidth="false" halignment="RIGHT" hgrow="SOMETIMES" maxWidth="163.33331298828128" minWidth="10.0" prefWidth="123.33335367838544" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="135.33331298828125" minWidth="10.0" prefWidth="114.66668701171875" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </columnConstraints>
+         <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
          <children>
             <TextField fx:id="status" prefHeight="25.0" prefWidth="173.0" GridPane.columnIndex="3" />
             <TextField fx:id="of_number" prefHeight="25.0" prefWidth="121.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />

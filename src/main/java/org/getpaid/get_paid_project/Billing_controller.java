@@ -58,7 +58,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
- import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
@@ -75,6 +75,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+
 
 public class Billing_controller {
 
@@ -245,7 +247,7 @@ public class Billing_controller {
                 totalAmount += rate * timeSpent;
             }
             calc.calculateTotalAmount(totalAmount);
-         }
+        }
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.showAndWait();
@@ -364,7 +366,7 @@ public class Billing_controller {
     }
 
 
-        public void setLoggedInUser (String user) {
-            this.loggedInUser = UserStore.getLoggedInUser();
-        }
+    public void setLoggedInUser (String user) {
+        this.loggedInUser = UserStore.getLoggedInUser();
     }
+}

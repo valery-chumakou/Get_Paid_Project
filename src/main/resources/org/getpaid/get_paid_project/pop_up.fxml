@@ -4,12 +4,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="493.0" styleClass="body" stylesheets="@pop.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.getpaid.get_paid_project.Pop_Up_Controller">
+<Pane fx:id="body" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="398.0" styleClass="background" stylesheets="@pop.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.getpaid.get_paid_project.Pop_Up_Controller">
 
-   
    <children>
-      <Button fx:id="add_btn" layoutX="93.0" layoutY="256.0" mnemonicParsing="false" onAction="#handleButtons" prefHeight="36.0" prefWidth="118.0" styleClass="add" text="Register" />
-      <Button fx:id="exist_btn" layoutX="251.0" layoutY="256.0" mnemonicParsing="false" onAction="#handleButtons" prefHeight="32.0" prefWidth="105.0" styleClass="exist" text="Log In" />
-      <Text fx:id="welcome" layoutX="64.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="welcome" text=" Welcome to billing" wrappingWidth="373.13539123535156" />
+      <Button fx:id="add_btn" layoutX="60.0" layoutY="216.0" mnemonicParsing="false" onAction="#handleButtons" prefHeight="38.0" prefWidth="105.0" styleClass="add" text="Register" />
+      <Button fx:id="exist_btn" layoutX="236.0" layoutY="216.0" mnemonicParsing="false" onAction="#handleButtons" prefHeight="38.0" prefWidth="105.0" styleClass="exist" text="Log In" />
+      <Text fx:id="welcome" layoutX="14.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="welcome" text="Welcome to billing" wrappingWidth="340.46876525878906" />
    </children>
 </Pane>

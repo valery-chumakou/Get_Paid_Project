@@ -10,6 +10,8 @@ public class Client {
     private String status;
     private String chapter;
 
+
+
     public String getChapter() {
         return chapter;
     }

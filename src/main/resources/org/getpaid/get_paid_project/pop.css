@@ -1,32 +1,33 @@
-.body {
-    -fx-background-image: url("back.jpg");
+.background {
+    -fx-background-color: linear-gradient(to right, #2c3e50, #4ca1af);
+ 
 }
 
 .add {
-    -fx-background-color: red;
-    -fx-text-fill: white;
-}
-
-.exist {
-    -fx-text-fill:white;
+    -fx-text-fill:rgb(16, 50, 50);
     -fx-font-family:"Comic Sans";
     -fx-font-weight:bold;
     -fx-font-size:16px;
-    -fx-background-color:linear-gradient(#61a2b1,#2A5058);
+    -fx-background-color:linear-gradient(#61a2b1,#93edff);
     -fx-effect:dropshadow(three-pass-box, rgba(0,0,0,0.6),5,0.0,0,1);
-     
 }
-.exit:hover{
+
+.exist {
+    -fx-text-fill:rgb(16, 50, 50);
+    -fx-font-family:"Comic Sans";
+    -fx-font-weight:bold;
+    -fx-font-size:16px;
+    -fx-background-color:linear-gradient(#61a2b1,#93edff);
+    -fx-effect:dropshadow(three-pass-box, rgba(0,0,0,0.6),5,0.0,0,1);
+}
+
+.exist:hover {
     -fx-background-color:linear-gradient(#2A5058, #61a2b1);
 }
 
 .welcome {
-     -fx-font-size:32px;
-     -fx-font-family:"Arial Black";
-     -fx-fill:#818181;
-     -fx-effect:innershadow(three-pass-box, rgba(255,255,255,0.5), 0,0,0,1);
-     
-
+    -fx-font-size:32px;
+    -fx-font-family:"Arial Black";
+    -fx-fill:#818181;
+    -fx-effect:innershadow(three-pass-box, rgba(255,255,255,0.5), 0,0,0,1);
 }
-
- 

@@ -44,9 +44,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.getpaid.get_paid_project.clients_list_controller">
+<VBox prefHeight="529.0" prefWidth="873.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.getpaid.get_paid_project.clients_list_controller">
   <children>
-    <MenuBar VBox.vgrow="NEVER">
+    <MenuBar stylesheets="@clients_list.css" VBox.vgrow="NEVER">
       <menus>
         <Menu mnemonicParsing="false" text="File">
           <items>
@@ -86,30 +86,30 @@
       </menus>
     </MenuBar>
 
-            <Pane layoutX="3.0" layoutY="4.0" prefHeight="368.0" prefWidth="633.0">
+            <Pane layoutX="3.0" layoutY="4.0" prefHeight="529.0" prefWidth="873.0" styleClass="body" stylesheets="@clients_list.css" VBox.vgrow="ALWAYS">
                <children>
-                  <TableView fx:id="clients_table" layoutX="17.0" layoutY="49.0" prefHeight="203.0" prefWidth="601.0">
+                  <TableView fx:id="clients_table" layoutX="31.0" layoutY="33.0" prefHeight="394.0" prefWidth="800.0">
                     <columns>
-                      <TableColumn fx:id="col_name" prefWidth="141.0" text="Name" />
-                        <TableColumn fx:id="col_chapter" prefWidth="53.0" text="Chapter" />
-                        <TableColumn fx:id="col_type" prefWidth="90.0" text="Type" />
-                        <TableColumn fx:id="col_status" prefWidth="108.0" text="Current Status" />
-                      <TableColumn fx:id="col_filingDate" prefWidth="103.0" text="Filing Date" />
-                        <TableColumn fx:id="col_of_no" minWidth="0.0" prefWidth="91.0" text="Office No." />
+                      <TableColumn fx:id="col_name" prefWidth="142.66666793823242" text="Name" />
+                        <TableColumn fx:id="col_chapter" prefWidth="137.3332977294922" text="Chapter" />
+                        <TableColumn fx:id="col_type" prefWidth="135.33334350585938" text="Type" />
+                        <TableColumn fx:id="col_status" prefWidth="121.33331298828125" text="Current Status" />
+                      <TableColumn fx:id="col_filingDate" prefWidth="104.66668701171875" text="Filing Date" />
+                        <TableColumn fx:id="col_of_no" minWidth="0.0" prefWidth="142.3333740234375" text="Office No." />
                     </columns>
                   </TableView>
-                  <Button fx:id="forms_btn" layoutX="22.0" layoutY="329.0" mnemonicParsing="false" text="Forms" />
-                  <Button fx:id="create_new_client" layoutX="77.0" layoutY="329.0" mnemonicParsing="false" onAction="#add_client_btn" text="New Client" />
+                  <Button fx:id="create_new_client" layoutX="31.0" layoutY="446.0" mnemonicParsing="false" onAction="#add_client_btn" prefHeight="36.0" prefWidth="100.0" styleClass="new_client_btn" stylesheets="@clients_list.css" text="New Client" />
               <Label fx:id="greeting" alignment="CENTER" layoutX="22.0" layoutY="13.0" prefHeight="27.0" prefWidth="136.0" style="&#10;" text=" " textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
                 <font>
                   <Font size="18.0" />
                 </font>
               </Label>
                   <Label fx:id="current_time" layoutX="168.0" layoutY="13.0" prefHeight="27.0" prefWidth="119.0" text=" " />
-                  <Label fx:id="disp_name" layoutX="17.0" layoutY="267.0" prefHeight="25.0" prefWidth="119.0" text=" " />
-                  <Label fx:id="disp_status" layoutX="158.0" layoutY="267.0" prefHeight="25.0" prefWidth="119.0" text=" " />
-                  <Button fx:id="delete_btn" layoutX="158.0" layoutY="329.0" mnemonicParsing="false" text="Delete" />
-                  <Button fx:id="biling_btn" layoutX="218.0" layoutY="329.0" mnemonicParsing="false" text="Biling" />
+                  <Label fx:id="disp_name" layoutX="510.0" layoutY="446.0" prefHeight="25.0" prefWidth="119.0" text=" " />
+                  <Label fx:id="disp_status" layoutX="524.0" layoutY="482.0" prefHeight="25.0" prefWidth="119.0" text=" " />
+                  <Button fx:id="delete_btn" layoutX="148.0" layoutY="446.0" mnemonicParsing="false"   prefHeight="36.0" prefWidth="100.0" styleClass="delete_btn" stylesheets="@clients_list.css" text="Delete" />
+                  <Button fx:id="biling_btn" layoutX="372.0" layoutY="446.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="100.0" styleClass="billing_btn" stylesheets="@clients_list.css" text="Biling" />
+            <Button fx:id="edit_btn" layoutX="260.0" layoutY="446.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="100.0" styleClass="billing_btn"   stylesheets="@clients_list.css" text="Edit" />
                </children>
             </Pane>
       </children>

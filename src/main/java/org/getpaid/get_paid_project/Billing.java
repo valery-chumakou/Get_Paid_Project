@@ -2,6 +2,8 @@ package org.getpaid.get_paid_project;
 
 import javafx.scene.control.TextField;
 
+
+
 public class Billing {
     private Integer rate;
     private String tasks;

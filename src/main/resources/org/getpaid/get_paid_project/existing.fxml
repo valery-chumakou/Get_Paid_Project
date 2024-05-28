@@ -6,11 +6,11 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="496.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.getpaid.get_paid_project.Existing_Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="496.0" styleClass="body" stylesheets="@existing.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.getpaid.get_paid_project.Existing_Controller">
    <children>
-      <Button fx:id="login_btn" layoutX="214.0" layoutY="234.0" mnemonicParsing="false" onAction="#handleExistingUser" prefHeight="25.0" prefWidth="118.0" text="Log In" />
-      <Label layoutX="127.0" layoutY="106.0" prefHeight="16.0" prefWidth="71.0" text="Username" />
-      <Label layoutX="127.0" layoutY="136.0" prefHeight="16.0" prefWidth="71.0" text="Password" />
+      <Button fx:id="login_btn" layoutX="181.0" layoutY="231.0" mnemonicParsing="false" onAction="#handleExistingUser" prefHeight="25.0" prefWidth="118.0" styleClass="log_btn" stylesheets="@existing.css" text="Log In" />
+      <Label layoutX="107.0" layoutY="106.0" prefHeight="21.0" prefWidth="91.0" styleClass="labels" stylesheets="@existing.css" text="Username" />
+      <Label layoutX="107.0" layoutY="136.0" prefHeight="21.0" prefWidth="91.0" styleClass="labels" text="Password" />
       <PasswordField fx:id="existing_password" layoutX="240.0" layoutY="141.0" />
       <TextField fx:id="existing_username" layoutX="240.0" layoutY="102.0" />
    </children>

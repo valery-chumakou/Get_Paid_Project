@@ -56,6 +56,8 @@ public class Existing_Controller {
                 stage.setScene(new Scene(root));
                 stage.show();
 
+
+
                 // Close the current window - optional
                 Stage currentStage = (Stage) existing_username.getScene().getWindow();
                 currentStage.close();
@@ -71,7 +73,7 @@ public class Existing_Controller {
         }
     }
 
-    public void loadNewScene() throws IOException {
+    public void loadNewScene() throws IOException, SQLException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("clients_list.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();

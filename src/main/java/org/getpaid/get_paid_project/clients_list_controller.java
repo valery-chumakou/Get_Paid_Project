@@ -18,7 +18,11 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
+import javafx.stage.Window;
+import javafx.stage.WindowEvent;
 import javafx.util.Duration;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import org.w3c.dom.events.MouseEvent;
 
 import java.io.IOException;
@@ -28,7 +32,10 @@ import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ResourceBundle;
 
+
+
 public class clients_list_controller implements Initializable {
+
     @FXML
     private Button forms_btn;
 
@@ -110,8 +117,32 @@ public class clients_list_controller implements Initializable {
         }
     }
 
+    @FXML
+    private void editClient(ActionEvent event) {
+
+    }
+
+    @FXML
+    private void deleteClient(ActionEvent event) {
+        Client selectedClient = clients_table.getSelectionModel().getSelectedItem();
+        if (selectedClient != null) {
+            try {
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/getPaid", "root", "BostonVenyaGlobe9357");
+                PreparedStatement pst = con.prepareStatement("DELETE FROM clients where first_name = ? and last_name = ?");
+                pst.setString(1, selectedClient.getFirstName());
+                pst.setString(2, selectedClient.getLastName());
+                pst.executeUpdate();
+                clientsList.remove(selectedClient);
+                refreshTable();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public void refreshTable() {
         clients_table.setItems(clientsList);
+
     }
 
     public void setClientsList(ObservableList<Client> clientsList) {
@@ -160,6 +191,18 @@ public class clients_list_controller implements Initializable {
         col_filingDate.setCellValueFactory(new PropertyValueFactory<>("filingDate"));
         col_of_no.setCellValueFactory(new PropertyValueFactory<>("officeNumber"));
 
+        clients_table.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Client>() {
+            @Override
+            public void changed(ObservableValue<? extends Client> observableValue, Client oldValue, Client newValue) {
+                if (newValue != null) {
+                    selectedClient = newValue;
+                    disp_name.setText(selectedClient.getFirstName() + " " + selectedClient.getLastName());
+                } else {
+                    disp_name.setText("");
+                }
+            }
+        });
+
 
         clients_table.setOnMouseClicked(event -> {
             if (event.getButton().equals(MouseButton.PRIMARY) &&
@@ -170,6 +213,14 @@ public class clients_list_controller implements Initializable {
                 }
             }
         });
+
+        delete_btn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                deleteClient(actionEvent);
+            }
+        });
+
     }
 
     private ObservableList<Billing> billingList = FXCollections.observableArrayList();
@@ -187,9 +238,8 @@ public class clients_list_controller implements Initializable {
             e.printStackTrace();
         }
     }
+
     public void setLoggedInUser(String loggedInUser) {
 
     }
 }
-
-

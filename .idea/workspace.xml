@@ -4,24 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20c46208-ec33-4a29-ad6f-6184ed00a5c1" name="Changes" comment="added css files">
+    <list default="true" id="20c46208-ec33-4a29-ad6f-6184ed00a5c1" name="Changes" comment="delete button added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/invoice.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/Billing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/Billing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/Billing_controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/Billing_controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/Existing_Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/Existing_Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/clients_list_controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/clients_list_controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/create_new_client_controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/create_new_client_controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/back.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/back.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/clients_list.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/clients_list.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/create_new_client.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/create_new_client.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/existing.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/existing.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/pop.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/pop.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/pop_up.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/pop_up.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/pr_back.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/pr_back.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/progress.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/progress.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/progress_bar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/progress_bar.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/edit_client.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/edit_client.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,26 +48,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.GenerateInvoice.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.Pop_Up.executor": "Run",
-    "Application.Progress.executor": "Run",
-    "Application.client_space_controller.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Valery Chumakou/OneDrive/Documents/Java Projects/Get_Paid_Project/poi-bin-5.2.3/ooxml-lib/xmlbeans-5.1.1.jar",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "editing.templates"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.GenerateInvoice.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Pop_Up.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Progress.executor&quot;: &quot;Run&quot;,
+    &quot;Application.client_space_controller.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Valery Chumakou/OneDrive/Documents/Java Projects/Get_Paid_Project/poi-bin-5.2.3/ooxml-lib/xmlbeans-5.1.1.jar&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editing.templates&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Valery Chumakou\OneDrive\Documents\Java Projects\Get_Paid_Project\src\main\resources\org\getpaid\get_paid_project" />
@@ -246,8 +234,27 @@
       <option name="project" value="LOCAL" />
       <updated>1716554934602</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="delete button added">
+      <option name="closed" value="true" />
+      <created>1716855152680</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1716855152680</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
@@ -260,7 +267,8 @@
     <MESSAGE value="added billing for clients" />
     <MESSAGE value="added jar files" />
     <MESSAGE value="added css files" />
-    <option name="LAST_COMMIT_MESSAGE" value="added css files" />
+    <MESSAGE value="delete button added" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete button added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

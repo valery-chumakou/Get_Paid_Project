@@ -117,10 +117,6 @@ public class clients_list_controller implements Initializable {
         }
     }
 
-    @FXML
-    private void editClient(ActionEvent event) {
-
-    }
 
     @FXML
     private void deleteClient(ActionEvent event) {
@@ -239,6 +235,43 @@ public class clients_list_controller implements Initializable {
         }
     }
 
+    @FXML
+    private void editClient(ActionEvent event) throws IOException {
+        Client selectedClient = clients_table.getSelectionModel().getSelectedItem();
+        if (selectedClient!=null) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("edit_client.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            EditClient_Controller editClientController = loader.getController();
+            editClientController.setClient(selectedClient);
+            stage.showAndWait();
+
+            // Update the database with the new values
+            try {
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/getPaid", "root", "BostonVenyaGlobe9357");
+                PreparedStatement pst = con.prepareStatement("UPDATE clients SET first_name=?, last_name=?, business_name=?, filing_date=?, chapter=?, type=?, office_number=?, status=? WHERE first_name=? AND last_name=?");
+                pst.setString(1, selectedClient.getFirstName());
+                pst.setString(2, selectedClient.getLastName());
+                pst.setString(3, selectedClient.getBusinessName());
+                pst.setString(4, selectedClient.getFilingDate());
+                pst.setString(5, selectedClient.getChapter());
+                pst.setString(6, selectedClient.getType());
+                pst.setString(7, selectedClient.getOfficeNumber());
+                pst.setString(8, selectedClient.getStatus());
+                pst.setString(9, selectedClient.getFirstName());
+                pst.setString(10, selectedClient.getLastName());
+                pst.executeUpdate();
+                con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+            // Refresh the table
+            refreshTable();
+        }
+
+    }
     public void setLoggedInUser(String loggedInUser) {
 
     }

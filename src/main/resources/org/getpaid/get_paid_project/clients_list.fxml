@@ -107,9 +107,9 @@
                   <Label fx:id="current_time" layoutX="168.0" layoutY="13.0" prefHeight="27.0" prefWidth="119.0" text=" " />
                   <Label fx:id="disp_name" layoutX="510.0" layoutY="446.0" prefHeight="25.0" prefWidth="119.0" text=" " />
                   <Label fx:id="disp_status" layoutX="524.0" layoutY="482.0" prefHeight="25.0" prefWidth="119.0" text=" " />
-                  <Button fx:id="delete_btn" layoutX="148.0" layoutY="446.0" mnemonicParsing="false"   prefHeight="36.0" prefWidth="100.0" styleClass="delete_btn" stylesheets="@clients_list.css" text="Delete" />
+                  <Button fx:id="delete_btn" layoutX="148.0" layoutY="446.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="100.0" styleClass="delete_btn" stylesheets="@clients_list.css" text="Delete" />
                   <Button fx:id="biling_btn" layoutX="372.0" layoutY="446.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="100.0" styleClass="billing_btn" stylesheets="@clients_list.css" text="Biling" />
-            <Button fx:id="edit_btn" layoutX="260.0" layoutY="446.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="100.0" styleClass="billing_btn"   stylesheets="@clients_list.css" text="Edit" />
+            <Button fx:id="edit_btn" layoutX="260.0" layoutY="446.0" mnemonicParsing="false" onAction="#editClient" prefHeight="36.0" prefWidth="100.0" styleClass="billing_btn" stylesheets="@clients_list.css" text="Edit" />
                </children>
             </Pane>
       </children>

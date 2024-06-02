@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20c46208-ec33-4a29-ad6f-6184ed00a5c1" name="Changes" comment="delete button added">
+    <list default="true" id="20c46208-ec33-4a29-ad6f-6184ed00a5c1" name="Changes" comment="edit button implemented">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/EditClient_Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/EditClient_Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/clients_list_controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/clients_list_controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/create_new_client_controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/create_new_client_controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/clients_list.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/clients_list.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/edit_client.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/edit_client.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -242,7 +240,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716855152680</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="edit button implemented">
+      <option name="closed" value="true" />
+      <created>1717290341150</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1717290341150</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -268,7 +274,8 @@
     <MESSAGE value="added jar files" />
     <MESSAGE value="added css files" />
     <MESSAGE value="delete button added" />
-    <option name="LAST_COMMIT_MESSAGE" value="delete button added" />
+    <MESSAGE value="edit button implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit button implemented" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

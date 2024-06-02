@@ -2,8 +2,10 @@ package org.getpaid.get_paid_project;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -77,6 +79,10 @@ public class clients_list_controller implements Initializable {
     private Timeline timeline;
     @FXML
     private Label disp_name;
+    @FXML
+    private Button save_btn;
+    private Connection con;
+    private Statement stmt;
 
 
     public void add_client_btn(ActionEvent actionEvent) throws Exception {
@@ -116,6 +122,7 @@ public class clients_list_controller implements Initializable {
             e.printStackTrace();
         }
     }
+
 
 
     @FXML
@@ -171,6 +178,16 @@ public class clients_list_controller implements Initializable {
     }
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/getPaid", "root", "BostonVenyaGlobe9357");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            stmt = con.createStatement();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         displayGreeting();
         populateTable();
         timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
@@ -236,9 +253,9 @@ public class clients_list_controller implements Initializable {
     }
 
     @FXML
-    private void editClient(ActionEvent event) throws IOException {
+    public void editClient(ActionEvent event) throws IOException {
         Client selectedClient = clients_table.getSelectionModel().getSelectedItem();
-        if (selectedClient!=null) {
+        if (selectedClient != null) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("edit_client.fxml"));
             Parent root = loader.load();
             Stage stage = new Stage();
@@ -267,8 +284,24 @@ public class clients_list_controller implements Initializable {
                 e.printStackTrace();
             }
 
-            // Refresh the table
-            refreshTable();
+            try {
+                ResultSet rs = stmt.executeQuery("SELECT * FROM clients");
+                clientsList.clear();
+                while (rs.next()) {
+                    Client client = new Client();
+                    client.setFirstName(rs.getString("first_name"));
+                    client.setLastName(rs.getString("last_name"));
+                    client.setBusinessName(rs.getString("business_name"));
+                    client.setFilingDate(rs.getString("filing_date"));
+                    client.setChapter(rs.getString("chapter"));
+                    client.setType(rs.getString("type"));
+                    client.setOfficeNumber(rs.getString("office_number"));
+                    client.setStatus(rs.getString("status"));
+                    clientsList.add(client);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
 
     }

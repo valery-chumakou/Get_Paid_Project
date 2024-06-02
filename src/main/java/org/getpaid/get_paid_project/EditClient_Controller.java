@@ -4,6 +4,7 @@ import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -70,13 +71,31 @@ public class EditClient_Controller {
                 client.setOfficeNumber(of_number.getText());
                 client.setStatus(status.getText());
 
+                try {
+                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/getPaid", "root", "BostonVenyaGlobe9357");
+                    PreparedStatement pst = con.prepareStatement("UPDATE clients SET first_name=?, last_name=?, business_name=?, filing_date=?, chapter=?, type=?, office_number=?, status=? WHERE first_name=? AND last_name=?");
+                    pst.setString(1, client.getFirstName());
+                    pst.setString(2, client.getLastName());
+                    pst.setString(3, client.getBusinessName());
+                    pst.setString(4, client.getFilingDate());
+                    pst.setString(5, client.getChapter());
+                    pst.setString(6, client.getType());
+                    pst.setString(7, client.getOfficeNumber());
+                    pst.setString(8, client.getStatus());
+                    pst.setString(9, client.getFirstName());
+                    pst.setString(10, client.getLastName());
+                    pst.executeUpdate();
+                    con.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                clients_table = new TableView<>();
+                refreshTable();
+
                 // Close the dialog
                 ((Stage) save_btn.getScene().getWindow()).close();
 
-                clients_table = new TableView<>();
-                // Refresh the client table
-                refreshTable();
-            }
+               }
         });
     }
     public void setClient(Client client) {
@@ -124,45 +143,74 @@ public class EditClient_Controller {
         client.setOfficeNumber(of_number.getText());
         client.setStatus(status.getText());
 
-        // Close the dialog
-        ((Stage) save_btn.getScene().getWindow()).close();
-
-        save_btn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                setClient(client);
-                ((Stage) save_btn.getScene().getWindow()).close();
-            }
-        });
-    }
-    public void refreshTable() {
-
-
-        // Clear the table first
-        clients_table.getItems().clear();
         try {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/getPaid", "root", "BostonVenyaGlobe9357");
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM clients");
-
-            while (rs.next()) {
-                Client client = new Client();
-                client.setFirstName(rs.getString("first_name"));
-                client.setLastName(rs.getString("last_name"));
-                client.setBusinessName(rs.getString("business_name"));
-                client.setFilingDate(rs.getString("filing_date"));
-                client.setChapter(rs.getString("chapter"));
-                client.setType(rs.getString("type"));
-                client.setOfficeNumber(rs.getString("office_number"));
-                client.setStatus(rs.getString("status"));
-                clientsList.add(client);
-            }
+            PreparedStatement pst = con.prepareStatement("UPDATE clients SET first_name=?, last_name=?, business_name=?, filing_date=?, chapter=?, type=?, office_number=?, status=? WHERE first_name=? AND last_name=?");
+            pst.setString(1, client.getFirstName());
+            pst.setString(2, client.getLastName());
+            pst.setString(3, client.getBusinessName());
+            pst.setString(4, client.getFilingDate());
+            pst.setString(5, client.getChapter());
+            pst.setString(6, client.getType());
+            pst.setString(7, client.getOfficeNumber());
+            pst.setString(8, client.getStatus());
+            pst.setString(9, client.getFirstName());
+            pst.setString(10, client.getLastName());
+            pst.executeUpdate();
             con.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        // Update the table view
-        clients_table.setItems(clientsList);
+        // Close the dialog
+        ((Stage) save_btn.getScene().getWindow()).close();
+
+
     }
-}
+    public void refreshTable() {
+
+        clients_table = new TableView<>();
+        TableColumn<Client, String> firstNameCol = new TableColumn<>("First Name");
+        firstNameCol.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        TableColumn<Client, String> lastNameCol = new TableColumn<>("Last Name");
+        lastNameCol.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        TableColumn<Client, String> businessNameCol = new TableColumn<>("Business Name");
+        businessNameCol.setCellValueFactory(new PropertyValueFactory<>("businessName"));
+        TableColumn<Client, String> filingDateCol = new TableColumn<>("Filing Date");
+        filingDateCol.setCellValueFactory(new PropertyValueFactory<>("filingDate"));
+        TableColumn<Client, String> chapterCol = new TableColumn<>("Chapter");
+        chapterCol.setCellValueFactory(new PropertyValueFactory<>("chapter"));
+        TableColumn<Client, String> typeCol = new TableColumn<>("Type");
+        typeCol.setCellValueFactory(new PropertyValueFactory<>("type"));
+        TableColumn<Client, String> officeNumberCol = new TableColumn<>("Office Number");
+        officeNumberCol.setCellValueFactory(new PropertyValueFactory<>("officeNumber"));
+        TableColumn<Client, String> statusCol = new TableColumn<>("Status");
+        statusCol.setCellValueFactory(new PropertyValueFactory<>("status"));
+
+        clients_table.getColumns().addAll(firstNameCol, lastNameCol, businessNameCol, filingDateCol, chapterCol, typeCol, officeNumberCol, statusCol);
+            try {
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/getPaid", "root", "BostonVenyaGlobe9357");
+                Statement stmt = con.createStatement();
+                ResultSet rs = stmt.executeQuery("SELECT * FROM clients");
+
+                while (rs.next()) {
+                    Client client = new Client();
+                    client.setFirstName(rs.getString("first_name"));
+                    client.setLastName(rs.getString("last_name"));
+                    client.setBusinessName(rs.getString("business_name"));
+                    client.setFilingDate(rs.getString("filing_date"));
+                    client.setChapter(rs.getString("chapter"));
+                    client.setType(rs.getString("type"));
+                    client.setOfficeNumber(rs.getString("office_number"));
+                    client.setStatus(rs.getString("status"));
+                    clientsList.add(client);
+                }
+                con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+            clients_table.setItems(clientsList);
+        }
+    }
+

@@ -22,7 +22,7 @@ public class Main extends  Application {
                     System.out.println("Progress finished. Running additional logic");
                     Platform.runLater(() -> {
                         try {
-                            FXMLLoader popUpLoader = new FXMLLoader(getClass().getResource("pop_up.fxml"));
+                            FXMLLoader popUpLoader = new FXMLLoader(getClass().getResource("existing.fxml"));
                             Parent popUpRoot = popUpLoader.load();
                             Scene popUpScene = new Scene(popUpRoot);
                             primaryStage.setScene(popUpScene);

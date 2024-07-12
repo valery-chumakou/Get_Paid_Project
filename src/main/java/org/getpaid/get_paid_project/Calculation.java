@@ -1,33 +1,14 @@
 package org.getpaid.get_paid_project;
 
-import com.itextpdf.layout.element.Table;
-import com.itextpdf.layout.element.Text;
-import com.itextpdf.text.*;
-        import com.itextpdf.text.pdf.*;
-        import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
-import javafx.concurrent.WorkerStateEvent;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
-import javafx.stage.Stage;
-import org.apache.poi.ss.formula.functions.T;
-
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.net.URL;
-import java.sql.*;
-        import java.util.ArrayList;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 public class Calculation implements Initializable {
     @FXML
@@ -37,6 +18,10 @@ public class Calculation implements Initializable {
     @FXML
     private Label total_amount;
     private FileChooser fileChooser;
+    @FXML
+    private Label paralegal_time;
+    @FXML
+    private Label total_hours;
     private Task<Void> generatePdfInvoiceTask;
     private ArrayList<Billing> billingList = new ArrayList<>();
     @FXML
@@ -49,11 +34,28 @@ public class Calculation implements Initializable {
 
     }
 
+    public Calculation() {
+        paralegal_time = new Label();
+    }
 
+    public void calculateAttorneyTime(String attorney_time) {
+        this.attorney_time.setText(String.valueOf(attorney_time));
 
+    }
+
+    public void calculateParalegalTime(String paralegal_time) {
+        this.paralegal_time.setText(String.valueOf(paralegal_time));
+    }
 
     public void calculateTotalAmount(int totalAmount) {
-        total_amount.setText(String.valueOf(totalAmount));
+        this.total_amount.setText(String.valueOf(totalAmount));
     }
+    public void calculateTotalHours(String total_hours) {
+        this.total_hours.setText(String.valueOf(total_hours));
+    }
+
+
+
+
 
 }

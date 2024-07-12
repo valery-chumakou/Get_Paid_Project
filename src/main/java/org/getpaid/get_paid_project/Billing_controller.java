@@ -1,82 +1,38 @@
 package org.getpaid.get_paid_project;
 import javafx.event.EventHandler;
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.Row;
+import javafx.scene.control.*;
+import javafx.scene.control.TextField;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
-import java.io.*;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.fxml.Initializable;
 import javafx.scene.control.cell.PropertyValueFactory;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import com.itextpdf.layout.element.Table;
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.*;
-import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.concurrent.Task;
-import javafx.concurrent.WorkerStateEvent;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.net.URL;
-import java.sql.*;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-
 
 public class Billing_controller {
 
@@ -88,37 +44,38 @@ public class Billing_controller {
     private TableView<Billing> billing_table;
     @FXML
     private Button save_btn;
-
-
+    @FXML
+    private ComboBox<String> menu_btn;
     @FXML
     private TableColumn<Billing, Integer> col_no;
-
     @FXML
     private TableColumn<Billing, Integer> col_rate;
-
     @FXML
     private TableColumn<Billing, String> col_tasks;
-
     @FXML
     private TableColumn<Billing, Integer> col_time;
-
     @FXML
     private TableColumn<Billing, String> col_user;
-
+    @FXML
+    private TableColumn<Billing, LocalDate> col_date;
     @FXML
     private TextField rate_field;
-
-    @FXML
-    private TextField tasks_field;
-
     @FXML
     private TextField time_spent_field;
     @FXML
     private Button calc_button;
     @FXML
     private Label outst_amount;
+    @FXML
+    private Button delete_btn;
+    @FXML
+    private Label attorney_time;
+    @FXML
+    private Label paralegal_time;
 
     public void initialize(int officeNumber, ObservableList<Billing> billingList) throws IOException {
+
+        menu_btn.setItems(FXCollections.observableArrayList("Option 1", "Option 2", "Option 3"));
         this.officeNumber = officeNumber;
         this.billingList = billingList;
         this.loggedInUser = UserStore.getLoggedInUser();
@@ -127,6 +84,7 @@ public class Billing_controller {
         col_tasks.setCellValueFactory(new PropertyValueFactory<>("tasks"));
         col_time.setCellValueFactory(new PropertyValueFactory<>("timeSpent"));
         col_user.setCellValueFactory(new PropertyValueFactory<>("user"));
+        col_date.setCellValueFactory(new PropertyValueFactory<>("date"));
         retrieveBillingData(officeNumber); // Retrieve billing data for the selected office number
         populateBillingTable();
         showCurrentAmount();
@@ -140,8 +98,42 @@ public class Billing_controller {
                 }
             }
         });
+
+        delete_btn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                deleteBilling();
+            }
+        });
     }
 
+    public void deleteBilling() {
+        int selectedIndex = billing_table.getSelectionModel().getSelectedIndex();
+        if (selectedIndex >= 0) {
+            Billing selectedBilling = billingList.get(selectedIndex);
+            try {
+                Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/getPaid", "root", "BostonVenyaGlobe9357");
+                String query = "DELETE FROM billing WHERE rate = ? AND office_number = ? AND user = ?";
+                PreparedStatement preparedStatement = connection.prepareStatement(query);
+                preparedStatement.setInt(1, selectedBilling.getRate());
+                preparedStatement.setInt(2, selectedBilling.getOfficeNo());
+                preparedStatement.setString(3, selectedBilling.getUser());
+                int rowsDeleted = preparedStatement.executeUpdate();
+                if (rowsDeleted > 0) {
+                    System.out.println("Billing information deleted successfully.");
+                } else {
+                    System.out.println("Error deleting billing information.");
+                }
+                connection.close();
+
+                billingList.remove(selectedIndex);
+            } catch (SQLException e) {
+                System.err.println("Error deleting billing information: " + e.getMessage());
+            }
+        } else {
+            System.out.println("No billing information selected.");
+        }
+    }
     // Method to populate the billing_table with data from billingList
     public void populateBillingTable() {
         billing_table.setItems(billingList);
@@ -151,7 +143,7 @@ public class Billing_controller {
     // Method to insert billing information into the database
     public void insertBillingInfo() {
         int rate = Integer.parseInt(rate_field.getText());
-        String tasks = tasks_field.getText();
+        String tasks = menu_btn.getValue();
         int timeSpent = Integer.parseInt(time_spent_field.getText());
         // Insert into the database
         try {
@@ -165,13 +157,13 @@ public class Billing_controller {
             preparedStatement.setInt(4, officeNumber);
             preparedStatement.setString(5, loggedInUser);
 
+
             int rowsInserted = preparedStatement.executeUpdate();
             if (rowsInserted > 0) {
                 System.out.println("Billing information inserted successfully.");
             }
 
-            // Add the new billing to billingList for UI update
-            User user = new User(loggedInUser); // assuming User has a constructor that takes a String
+             User user = new User(loggedInUser);
             Billing newBilling = new Billing(rate, tasks, timeSpent, loggedInUser, officeNumber);
             billingList.add(newBilling);
             billing_table.setItems(billingList);
@@ -186,8 +178,7 @@ public class Billing_controller {
         }
     }
 
-    // Method to retrieve billing data from the database
-    public void retrieveBillingData(int officeNumber) throws IOException {
+     public void retrieveBillingData(int officeNumber) throws IOException {
         billingList.clear(); // Clear existing billing data
 
         try {
@@ -205,7 +196,19 @@ public class Billing_controller {
                 String userName = resultSet.getString("user");
                 User user = new User(userName); // assuming User has a constructor that takes a String
                 Billing billing = new Billing(rate, tasks, timeSpent, user.getName(), officeNumber); // Set the user's name here
-                billingList.add(billing);
+                String date = resultSet.getString("date");
+
+                if (date != null) {
+                    LocalDate localDate = LocalDate.parse(date, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+                    // Do something with the localDate
+                } else {
+                    // Handle the case where date is null
+                    System.out.println("Date is null");
+                }
+
+
+
+                billingList.add(billing );
 
             }
 
@@ -222,7 +225,7 @@ public class Billing_controller {
         Billing selectedBilling = billing_table.getSelectionModel().getSelectedItem();
         if (selectedBilling != null) {
             User user = new User(loggedInUser);
-            Billing newBilling = new Billing(rate_field, tasks_field, user.getName(), officeNumber);
+            Billing newBilling = new Billing(rate_field, menu_btn.getEditor(), user.getName(), officeNumber);
             System.out.println("Username: " + user.getName());
         }
     }
@@ -241,19 +244,59 @@ public class Billing_controller {
                 billing_table.getSelectionModel().getSelectedItems();
         if (!selectedBilling.isEmpty()) {
             int totalAmount = 0;
+            int totalAttorneyTime = 0;
+            int totalParalegalTime = 0;
+            int totalHours = 0;
             for (Billing billing : selectedBilling) {
                 double rate = billing.getRate();
                 int timeSpent = billing.getTimeSpent();
                 totalAmount += rate * timeSpent;
+                if (rate == 450) {
+                    totalAttorneyTime += timeSpent;
+                } else if (rate ==250) {
+                    totalParalegalTime += timeSpent;
+                }
             }
             calc.calculateTotalAmount(totalAmount);
+            calc.calculateAttorneyTime(String.valueOf(totalAttorneyTime));
+            calc.calculateParalegalTime(String.valueOf(totalParalegalTime));
+            calc.calculateTotalHours(String.valueOf(totalHours));
+          } else {
+            int totalAmount = 0;
+            int totalAttorneyTime = 0;
+            int totalParalegalTime = 0;
+            double totalHours = 0;
+            for (Billing billing : billingList) {
+                double rate = billing.getRate();
+                int timeSpent = billing.getTimeSpent();
+                totalAmount+= rate*timeSpent;
+                if (rate == 450) {
+                    totalAttorneyTime+=timeSpent;
+                    totalHours+=timeSpent;
+
+                } else if (rate == 250) {
+                    totalParalegalTime += timeSpent;
+                    totalHours+=timeSpent;
+                }
+            }
+            calc.calculateTotalAmount(totalAmount);
+            calc.calculateAttorneyTime(String.valueOf(totalAttorneyTime));
+            calc.calculateParalegalTime(String.valueOf(totalParalegalTime));
+            calc.calculateTotalHours(String.valueOf(totalHours));
         }
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.showAndWait();
-        showCurrentAmount();
+    }
 
-
+    public void showAttorneyTime() {
+        int totalAttorneyTime = 0;
+        for (Billing billing : billingList) {
+            if (billing.getRate() == 450) {
+                totalAttorneyTime+=billing.getTimeSpent();
+            }
+        }
+        attorney_time.setText(String.valueOf(totalAttorneyTime));
     }
 
     public void showCurrentAmount() throws IOException {
@@ -275,8 +318,7 @@ public class Billing_controller {
                 XSSFWorkbook workbook = new XSSFWorkbook();
                 XSSFSheet sheet = workbook.createSheet("Billing Table");
 
-                // Add headers to the sheet
-                XSSFRow row = sheet.createRow(0);
+                 XSSFRow row = sheet.createRow(0);
                 XSSFCell cell = row.createCell(0);
                 cell.setCellValue("Office Number");
 
@@ -292,8 +334,7 @@ public class Billing_controller {
                 cell = row.createCell(4);
                 cell.setCellValue("User");
 
-                // Add data to the sheet
-                int rowIndex = 1;
+                 int rowIndex = 1;
                 for (Billing billing : billingList) {
                     row = sheet.createRow(rowIndex);
                     cell = row.createCell(0);
@@ -314,7 +355,6 @@ public class Billing_controller {
                     rowIndex++;
                 }
 
-                // Save the workbook to a file
 
                 FileOutputStream fileOutputStream = new FileOutputStream(String.valueOf(file.toPath()));
                 workbook.write(fileOutputStream);
@@ -341,6 +381,9 @@ public class Billing_controller {
                 document.open(); // Open the document before adding content
 
                 PdfPTable table = new PdfPTable(new float[]{1, 2, 3,4,5});
+                PdfPTable headerTable = new PdfPTable(new float[]{1});
+                headerTable.addCell(loggedInUser + new Date().toString());
+                document.add(headerTable);
                 table.addCell("Office Number");
                 table.addCell("Rate");
                 table.addCell("Tasks");

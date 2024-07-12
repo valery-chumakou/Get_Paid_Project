@@ -6,54 +6,46 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-
+import javafx.stage.Stage;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 
-public class create_new_client_controller {
-
+public class Create_new_client_controller {
     @FXML
     private RadioButton business;
-
     @FXML
     private RadioButton ch11;
-
     @FXML
     private RadioButton ch7;
-
     @FXML
     private TextField corp_name;
-
     @FXML
     private DatePicker date;
-
     @FXML
     private TextField f_name;
-
     @FXML
     private TextField l_name;
-
     @FXML
     private TextField of_number;
-
     @FXML
     private RadioButton personal;
-
     @FXML
     private TextField status;
     @FXML
     private Button save_btn;
-    private clients_list_controller clientsListController;
+    private Clients_list_controller clientsListController;
 
-    public void setClientsListController(clients_list_controller clientsListController) {
+    public void setClientsListController(Clients_list_controller clientsListController) {
         this.clientsListController = clientsListController;
     }
 
-
-    public void saveClient(ActionEvent actionEvent) {
+    public void closeWindow() {
+        ((Stage) save_btn.getScene().getWindow()).close();
+    }
+    public void saveClient() {
         String firstName = f_name.getText();
         String lastName = l_name.getText();
         String businessName = corp_name.getText();
@@ -69,7 +61,6 @@ public class create_new_client_controller {
 
         if (date.getValue() == null) {
             System.out.println("Date value is null, cannot save client");
-            // You can display an alert message or handle the situation as needed
             return;
         }
 
@@ -98,7 +89,6 @@ public class create_new_client_controller {
             pst.executeUpdate();
             con.close();
 
-            // Clear the form fields after successful insertion
             f_name.clear();
             l_name.clear();
             corp_name.clear();
@@ -109,14 +99,26 @@ public class create_new_client_controller {
             personal.setSelected(false);
             of_number.clear();
             status.clear();
-
-            // Notify the clients list controller to add the new client
             clientsListController.addNewClient(newClient);
         } catch (SQLException e) {
             e.printStackTrace();
-            // Handle the SQLException accordingly
         }
-
-
     }
+        @FXML
+     private void handleButtonSelection(ActionEvent event) {
+        RadioButton selectedButton = (RadioButton) event.getSource();
+        if (selectedButton.getText().equals("Business")) {
+            business.setSelected(true);
+            personal.setSelected(false);
+        } else if (selectedButton.getText().equals("Personal")) {
+            personal.setSelected(true);
+            business.setSelected(false);
+        } else if (selectedButton.getText().equals("Ch11")) {
+            ch11.setSelected(true);
+            ch7.setSelected(false);
+        } else if (selectedButton.getText().equals("Ch7")) {
+            ch7.setSelected(true);
+            ch11.setSelected(false);
+        }
+        }
 }

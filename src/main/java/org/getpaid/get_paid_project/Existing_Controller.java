@@ -1,17 +1,17 @@
 package org.getpaid.get_paid_project;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.sql.*;
+
+
 
 public class Existing_Controller {
     @FXML
@@ -21,7 +21,7 @@ public class Existing_Controller {
 
 
     @FXML
-    public User handleExistingUser() throws SQLException, IOException {
+    public User handleExistingUser() throws IOException {
         String name = existing_username.getText();
         String password = existing_password.getText();
         boolean userFound = false;
@@ -40,25 +40,24 @@ public class Existing_Controller {
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
-                // Handle any SQL exception
             }
 
             if (userFound) {
                 User authenticatedUser = new User(name);
                 UserStore.setLoggedInUser(authenticatedUser.getName());
 
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("clients_list.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("dashboard.fxml"));
+                Dashboard_controller controller = loader.getController();
                 Parent root = loader.load();
                 Stage stage = new Stage();
-                clients_list_controller controller = loader.getController();
-                controller.setLoggedInUser(authenticatedUser.getName());
-                controller.populateTable(); // Refresh the table with client data
+//                controller.setLoggedInUser(authenticatedUser.getName());
+//                controller.populateTable(); // Refresh the table with client data
+                ScrollPane scrollPane = new ScrollPane(root);
+
                 stage.setScene(new Scene(root));
+
                 stage.show();
 
-
-
-                // Close the current window - optional
                 Stage currentStage = (Stage) existing_username.getScene().getWindow();
                 currentStage.close();
 
@@ -73,16 +72,16 @@ public class Existing_Controller {
         }
     }
 
-    public void loadNewScene() throws IOException, SQLException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("clients_list.fxml"));
+    public void loadNewScene() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("dashboard.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
-        clients_list_controller controller = loader.getController();
+        Clients_list_controller controller = loader.getController();
         controller.populateTable(); // Refresh the table with client data
-        stage.setScene(new Scene(root));
+        stage.setScene(new Scene(new ScrollPane(root), 600, 400)); // Set the preferred size of the scroll pane
         stage.show();
 
-        // Close the current window - optional
+        stage.setResizable(true);
         Stage currentStage = (Stage) existing_username.getScene().getWindow();
         currentStage.close();
     }

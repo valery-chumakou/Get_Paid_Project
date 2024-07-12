@@ -2,10 +2,8 @@ package org.getpaid.get_paid_project;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -20,12 +18,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
-import javafx.stage.Window;
-import javafx.stage.WindowEvent;
 import javafx.util.Duration;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import org.w3c.dom.events.MouseEvent;
 
 import java.io.IOException;
 import java.net.URL;
@@ -36,16 +31,11 @@ import java.util.ResourceBundle;
 
 
 
-public class clients_list_controller implements Initializable {
-
-    @FXML
-    private Button forms_btn;
-
+public class Clients_list_controller implements Initializable {
     private ObservableList<Client> clientsList = FXCollections.observableArrayList();
     private Client selectedClient;
     @FXML
     private TableView<Client> clients_table;
-    private String loggedInUser;
 
     @FXML
     private TableColumn<Client, String> col_filingDate;
@@ -88,7 +78,7 @@ public class clients_list_controller implements Initializable {
     public void add_client_btn(ActionEvent actionEvent) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("create_new_client.fxml"));
         Parent root = loader.load();
-        create_new_client_controller createNewClientController = loader.getController();
+        Create_new_client_controller createNewClientController = loader.getController();
         createNewClientController.setClientsListController(this);
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
@@ -178,6 +168,8 @@ public class clients_list_controller implements Initializable {
     }
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
         try {
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/getPaid", "root", "BostonVenyaGlobe9357");
         } catch (SQLException e) {
@@ -236,7 +228,7 @@ public class clients_list_controller implements Initializable {
 
     }
 
-    private ObservableList<Billing> billingList = FXCollections.observableArrayList();
+    private final ObservableList<Billing> billingList = FXCollections.observableArrayList();
 
     private void openBilling(String officeNumber) {
         try {
@@ -246,6 +238,7 @@ public class clients_list_controller implements Initializable {
             billingController.initialize(Integer.parseInt(officeNumber), billingList);
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
+            stage.setResizable(false);
             stage.showAndWait();
         } catch (IOException e) {
             e.printStackTrace();

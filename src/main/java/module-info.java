@@ -11,6 +11,7 @@ module org.getpaid.get_paid_project {
     requires kernel;
     requires layout;
 
+
     exports org.getpaid.get_paid_project;
     opens org.getpaid.get_paid_project to javafx.fxml;
 }

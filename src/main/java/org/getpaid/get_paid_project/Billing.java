@@ -2,6 +2,7 @@ package org.getpaid.get_paid_project;
 
 import javafx.scene.control.TextField;
 
+import java.time.LocalDate;
 
 
 public class Billing {
@@ -10,6 +11,7 @@ public class Billing {
     private Integer timeSpent;
     private String user;
     private Integer officeNo;
+    private LocalDate date;
 
 
     public Billing(Integer rate, String tasks, Integer timeSpent, String user, Integer officeNo) {
@@ -18,12 +20,21 @@ public class Billing {
         this.timeSpent = timeSpent;
         this.user = user;
         this.officeNo = officeNo;
+        this.date = LocalDate.now();
     }
 
     public Billing () {
 
     }
     public Billing(TextField rateField, TextField tasksField, String name, Integer officeNumber) {
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
     public Billing(int officeNumber, String tasks, int timeSpent, int rate) {

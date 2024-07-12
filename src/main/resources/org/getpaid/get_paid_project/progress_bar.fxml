@@ -8,7 +8,7 @@
 
 
    <children>
-      <ProgressBar fx:id="pr_br" layoutX="11.0" layoutY="203.0" prefHeight="5.0" prefWidth="390.0" progress="0.0" styleClass="bar" stylesheets="@progress.css" />
-      <Label fx:id="load_status" layoutX="14.0" layoutY="168.0" prefHeight="35.0" prefWidth="75.0" />
+      <ProgressBar fx:id="pr_br" layoutX="123.0" layoutY="200.0" opacity="0.33" prefHeight="11.0" prefWidth="206.0" progress="0.0" styleClass="bar" stylesheets="@progress.css" />
+      <Label fx:id="load_status" layoutX="333.0" layoutY="176.0" prefHeight="35.0" prefWidth="65.0" styleClass="percentage" stylesheets="@progress.css" />
    </children>
 </Pane>

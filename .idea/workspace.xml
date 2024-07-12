@@ -6,8 +6,29 @@
   <component name="ChangeListManager">
     <list default="true" id="20c46208-ec33-4a29-ad6f-6184ed00a5c1" name="Changes" comment="edit button implemented">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/EditClient_Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/EditClient_Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/clients_list_controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/clients_list_controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/Billing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/Billing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/Billing_controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/Billing_controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/Calculation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/Calculation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/Existing_Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/Existing_Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/NewUser_Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/Pop_Up.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/Pop_Up_Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/clients_list_controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/Clients_list_controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/create_new_client_controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/Create_new_client_controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/billing.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/billing.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/calculation.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/calculation.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/clients_list.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/clients_list.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/create_new_client.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/create_new_client.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/new_client.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/new_client.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/pop.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/pop_up.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/pr_back.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/pr_back.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/progress.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/progress.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/progress_bar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/progress_bar.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/getpaid/get_paid_project/register.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +80,7 @@
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Valery Chumakou/OneDrive/Documents/Java Projects/Get_Paid_Project/poi-bin-5.2.3/ooxml-lib/xmlbeans-5.1.1.jar&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Valery Chumakou/OneDrive/Documents/Java Projects/Get_Paid_Project&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -248,7 +269,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717290341150</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="edit button implemented">
+      <option name="closed" value="true" />
+      <created>1717346672124</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1717346672124</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -282,17 +311,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/Billing.java</url>
-          <line>73</line>
+          <line>84</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/getpaid/get_paid_project/Billing_controller.java</url>
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/module-info.java</url>
-          <line>1</line>
-          <option name="timeStamp" value="4" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.RuntimeException" package="java.lang" />

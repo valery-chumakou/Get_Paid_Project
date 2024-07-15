@@ -9,9 +9,15 @@ public class Client {
     private String officeNumber;
     private String status;
     private String chapter;
+    private double outstandingBalance;
 
+    public double getOutstandingBalance() {
+        return outstandingBalance;
+    }
 
-
+    public void setOutstandingBalance(double outstandingBalance) {
+        this.outstandingBalance = outstandingBalance;
+    }
     public String getChapter() {
         return chapter;
     }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="443.0" prefWidth="693.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView fx:id="payments_table" layoutX="9.0" layoutY="9.0" prefHeight="338.0" prefWidth="676.0" styleClass="clients-list" stylesheets="@clients_list.css">
+         <columns>
+            <TableColumn fx:id="col_name" prefWidth="126.00000381469727" styleClass="columns" text="Name" />
+            <TableColumn fx:id="col_chapter" prefWidth="121.33334350585938" styleClass="columns" text="Chapter" />
+            <TableColumn fx:id="col_type" prefWidth="60.0" styleClass="columns" text="Type" />
+            <TableColumn fx:id="col_status" prefWidth="96.0" styleClass="columns" text="Current Status" />
+            <TableColumn fx:id="col_amountOwned" prefWidth="158.66668701171875" styleClass="columns" text="Amount Owned" />
+            <TableColumn prefWidth="92.6666259765625" text="Amount paid" />
+            <TableColumn fx:id="col_of_no" minWidth="0.0" prefWidth="105.3333740234375" styleClass="columns" text="Office No." />
+         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+   </children>
+</Pane>

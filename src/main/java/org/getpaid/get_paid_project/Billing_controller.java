@@ -163,7 +163,7 @@ public class Billing_controller {
                 System.out.println("Billing information inserted successfully.");
             }
 
-             User user = new User(loggedInUser);
+            User user = new User(loggedInUser);
             Billing newBilling = new Billing(rate, tasks, timeSpent, loggedInUser, officeNumber);
             billingList.add(newBilling);
             billing_table.setItems(billingList);
@@ -178,7 +178,7 @@ public class Billing_controller {
         }
     }
 
-     public void retrieveBillingData(int officeNumber) throws IOException {
+    public void retrieveBillingData(int officeNumber) throws IOException {
         billingList.clear(); // Clear existing billing data
 
         try {
@@ -261,7 +261,7 @@ public class Billing_controller {
             calc.calculateAttorneyTime(String.valueOf(totalAttorneyTime));
             calc.calculateParalegalTime(String.valueOf(totalParalegalTime));
             calc.calculateTotalHours(String.valueOf(totalHours));
-          } else {
+        } else {
             int totalAmount = 0;
             int totalAttorneyTime = 0;
             int totalParalegalTime = 0;
@@ -307,7 +307,20 @@ public class Billing_controller {
             totalAmount += rate * timeSpent;
         }
         outst_amount.setText(String.valueOf(totalAmount));
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/getPaid", "root", "BostonVenyaGlobe9357");
+            String query = "UPDATE payments SET amount_owned = ? WHERE office_number = ?";
+            PreparedStatement pstmt = conn.prepareStatement(query);
+            pstmt.setDouble(1, totalAmount);
+             pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Error updating the database: " + e.getMessage());
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
+
 
     @FXML
     public void exportBillingTableToExcel() throws IOException {
@@ -318,7 +331,7 @@ public class Billing_controller {
                 XSSFWorkbook workbook = new XSSFWorkbook();
                 XSSFSheet sheet = workbook.createSheet("Billing Table");
 
-                 XSSFRow row = sheet.createRow(0);
+                XSSFRow row = sheet.createRow(0);
                 XSSFCell cell = row.createCell(0);
                 cell.setCellValue("Office Number");
 
@@ -334,7 +347,7 @@ public class Billing_controller {
                 cell = row.createCell(4);
                 cell.setCellValue("User");
 
-                 int rowIndex = 1;
+                int rowIndex = 1;
                 for (Billing billing : billingList) {
                     row = sheet.createRow(rowIndex);
                     cell = row.createCell(0);
@@ -380,7 +393,7 @@ public class Billing_controller {
                 PdfWriter.getInstance(document, fileOutputStream);
                 document.open(); // Open the document before adding content
 
-                PdfPTable table = new PdfPTable(new float[]{1, 2, 3,4,5});
+                PdfPTable table = new PdfPTable(new float[]{1, 2, 3, 4, 5});
                 PdfPTable headerTable = new PdfPTable(new float[]{1});
                 headerTable.addCell(loggedInUser + new Date().toString());
                 document.add(headerTable);
@@ -407,8 +420,6 @@ public class Billing_controller {
             }
         }
     }
-
-
     public void setLoggedInUser (String user) {
         this.loggedInUser = UserStore.getLoggedInUser();
     }

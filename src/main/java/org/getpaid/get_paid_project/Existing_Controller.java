@@ -46,12 +46,10 @@ public class Existing_Controller {
                 User authenticatedUser = new User(name);
                 UserStore.setLoggedInUser(authenticatedUser.getName());
 
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("dashboard.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("main.fxml"));
                 Dashboard_controller controller = loader.getController();
                 Parent root = loader.load();
                 Stage stage = new Stage();
-//                controller.setLoggedInUser(authenticatedUser.getName());
-//                controller.populateTable(); // Refresh the table with client data
                 ScrollPane scrollPane = new ScrollPane(root);
 
                 stage.setScene(new Scene(root));

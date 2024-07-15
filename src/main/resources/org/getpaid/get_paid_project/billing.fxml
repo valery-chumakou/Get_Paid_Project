@@ -9,30 +9,38 @@
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="716.0" styleClass="body" stylesheets="@billing.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.getpaid.get_paid_project.Billing_controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="583.0" prefWidth="948.0" styleClass="body" stylesheets="@billing.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.getpaid.get_paid_project.Billing_controller">
     <children>
-        <TableView fx:id="billing_table" layoutX="14.0" layoutY="53.0" prefHeight="283.0" prefWidth="550.0" styleClass="table_view" stylesheets="@billing.css">
+        <TableView fx:id="billing_table" layoutX="21.0" layoutY="60.0" prefHeight="316.0" prefWidth="613.0" styleClass="table_view" stylesheets="@billing.css">
             <columns>
-            <TableColumn fx:id="col_no" prefWidth="80.00005722045898" styleClass="column-header" text="Office No" />
-                <TableColumn fx:id="col_tasks" prefWidth="116.66661834716797" styleClass="column-header" text="Tasks" />
+            <TableColumn fx:id="col_no" prefWidth="86.66668701171875" styleClass="column-header" text="Office No" />
+                <TableColumn fx:id="col_tasks" prefWidth="83.33334350585938" styleClass="column-header" text="Tasks" />
                 <TableColumn fx:id="col_user" prefWidth="84.66670227050781" styleClass="column-header" text="User" />
-                <TableColumn fx:id="col_time" prefWidth="85.99993896484375" styleClass="column-header" text="Time" />
-                <TableColumn fx:id="col_rate" prefWidth="62.0" styleClass="column-header" text="Rate" />
-            <TableColumn fx:id="col_date" prefWidth="116.66665649414062" styleClass="column-header" text="Date " />
+                <TableColumn fx:id="col_time" prefWidth="126.0" styleClass="column-header" text="Time" />
+                <TableColumn fx:id="col_rate" prefWidth="59.3333740234375" styleClass="column-header" text="Rate" />
+            <TableColumn fx:id="col_date" prefWidth="86.66668701171875" styleClass="column-header" text="Date " />
+            <TableColumn fx:id="col_balance" prefWidth="75.0" text="Balance" />
             </columns>
         </TableView>
-        <TextField fx:id="rate_field" layoutX="577.0" layoutY="109.0" prefHeight="25.0" prefWidth="114.0" />
-        <Label layoutX="616.0" layoutY="134.0" styleClass="rate_lbl" stylesheets="@billing.css" text="Rate" />
-        <Label layoutX="589.0" layoutY="200.0" styleClass="time_lbl" stylesheets="@billing.css" text="Time spent" />
-        <Button fx:id="add_btn" layoutX="35.0" layoutY="360.0" mnemonicParsing="false" onAction="#insertBillingInfo" prefHeight="25.0" prefWidth="89.0" styleClass="add_btn" text="Create task" />
-      <Button fx:id="calc_button" layoutX="463.0" layoutY="360.0" mnemonicParsing="false" onAction="#openCalculation" prefHeight="25.0" prefWidth="94.0" styleClass="calculate_btn" text="Calculate" />
-      <Button fx:id="save_btn" layoutX="351.0" layoutY="360.0" mnemonicParsing="false" onAction="#exportBillingTableToExcel" prefHeight="25.0" prefWidth="94.0" styleClass="excel_btn" text="Save in Excel" />
-      <Label fx:id="outst_amount" layoutX="577.0" layoutY="14.0" prefHeight="34.0" prefWidth="114.0" styleClass="outst_amount" stylesheets="@billing.css" text="= " />
-      <Button fx:id="invoice_btn" layoutX="240.0" layoutY="360.0" mnemonicParsing="false" onAction="#generatePdf" prefHeight="25.0" prefWidth="94.0" styleClass="generate_btn" text="Generate " />
-      <ComboBox fx:id="menu_btn" layoutX="577.0" layoutY="236.0" prefHeight="27.0" prefWidth="114.0" promptText="Select Task" styleClass="combo_btn" stylesheets="@billing.css" />
-      <Label fx:id="out_lbl" layoutX="387.0" layoutY="18.0" prefHeight="21.0" prefWidth="183.0" styleClass="out_lbl" stylesheets="@billing.css" text="Outstanding balance " />
-      <TextField fx:id="time_spent_field" layoutX="577.0" layoutY="169.0" prefHeight="25.0" prefWidth="114.0" />
-      <Button fx:id="delete_btn" layoutX="138.0" layoutY="360.0" mnemonicParsing="false" onAction="#deleteBilling" prefHeight="25.0" prefWidth="89.0" styleClass="add_btn" text="Delete task" />
+        <Button fx:id="add_btn" layoutX="21.0" layoutY="391.0" mnemonicParsing="false" onAction="#insertBillingInfo" prefHeight="27.0" prefWidth="105.0" styleClass="add_btn" text="Create task" />
+      <Button fx:id="calc_button" layoutX="495.0" layoutY="391.0" mnemonicParsing="false" onAction="#openCalculation" prefHeight="21.0" prefWidth="83.0" styleClass="calculate_btn" text="Calculate" />
+      <Button fx:id="save_btn" layoutX="359.0" layoutY="391.0" mnemonicParsing="false" onAction="#exportBillingTableToExcel" prefHeight="21.0" prefWidth="114.0" styleClass="excel_btn" text="Save in Excel" />
+      <Button fx:id="invoice_btn" layoutX="249.0" layoutY="391.0" mnemonicParsing="false" onAction="#generatePdf" prefHeight="25.0" prefWidth="94.0" styleClass="generate_btn" text="Generate " />
+      <Button fx:id="delete_btn" layoutX="142.0" layoutY="391.0" mnemonicParsing="false" onAction="#deleteBilling" prefHeight="12.0" prefWidth="94.0" styleClass="add_btn" text="Delete task" />
+      <Pane layoutX="1.0" prefHeight="44.0" prefWidth="716.0" styleClass="top-panel" stylesheets="@dashboard.css">
+         <children>
+            <Label fx:id="outst_amount" layoutX="192.0" layoutY="5.0" prefHeight="34.0" prefWidth="114.0" styleClass="outst_amount" stylesheets="@billing.css" text="= " />
+            <Label fx:id="out_lbl" layoutX="22.0" layoutY="9.0" prefHeight="21.0" prefWidth="183.0" styleClass="out_lbl" stylesheets="@billing.css" text="Outstanding balance " />
+            <Label fx:id="out_lbl1" layoutX="282.0" layoutY="9.0" prefHeight="21.0" prefWidth="183.0" styleClass="out_lbl" stylesheets="@billing.css" text="Amount Paid" />
+            <Label fx:id="amount_paid" layoutX="395.0" layoutY="5.0" prefHeight="34.0" prefWidth="114.0" styleClass="outst_amount" stylesheets="@billing.css" text="= " />
+         </children>
+      </Pane>
+      <ComboBox fx:id="menu_btn" layoutX="773.0" layoutY="59.0" prefHeight="29.0" prefWidth="123.0" promptText="Select Task" styleClass="combo_btn" stylesheets="@billing.css" />
+      <TextField fx:id="time_spent_field" layoutX="777.0" layoutY="107.0" prefHeight="25.0" prefWidth="114.0" />
+        <Label layoutX="777.0" layoutY="167.0" styleClass="time_lbl" stylesheets="@billing.css" text="Time spent" />
+        <TextField fx:id="rate_field" layoutX="778.0" layoutY="213.0" prefHeight="25.0" prefWidth="114.0" />
+        <Label layoutX="817.0" layoutY="264.0" styleClass="rate_lbl" stylesheets="@billing.css" text="Rate" />
+      <Button fx:id="payment_btn" layoutX="786.0" layoutY="310.0" mnemonicParsing="false"   prefHeight="29.0" prefWidth="132.0" styleClass="calculate_btn" text="Make a payment" />
     </children>
    <effect>
       <DropShadow />

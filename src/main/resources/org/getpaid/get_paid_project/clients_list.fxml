@@ -35,61 +35,20 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.getpaid.get_paid_project.Clients_list_controller">
   <children>
-    <MenuBar styleClass="body" stylesheets="@clients_list.css" VBox.vgrow="NEVER">
-      <menus>
-        <Menu mnemonicParsing="false" text="File">
-          <items>
-            <MenuItem mnemonicParsing="false" text="New" />
-            <MenuItem mnemonicParsing="false" text="Open…" />
-            <Menu mnemonicParsing="false" text="Open Recent" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Close" />
-            <MenuItem mnemonicParsing="false" text="Save" />
-            <MenuItem mnemonicParsing="false" text="Save As…" />
-            <MenuItem mnemonicParsing="false" text="Revert" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Preferences…" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Quit" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Edit">
-          <items>
-            <MenuItem mnemonicParsing="false" text="Undo" />
-            <MenuItem mnemonicParsing="false" text="Redo" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Cut" />
-            <MenuItem mnemonicParsing="false" text="Copy" />
-            <MenuItem mnemonicParsing="false" text="Paste" />
-            <MenuItem mnemonicParsing="false" text="Delete" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Select All" />
-            <MenuItem mnemonicParsing="false" text="Unselect All" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Help">
-          <items>
-            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
-          </items>
-        </Menu>
-      </menus>
-    </MenuBar>
 
             <Pane layoutX="3.0" layoutY="4.0" prefHeight="542.0" prefWidth="1033.0" styleClass="body" stylesheets="@clients_list.css" VBox.vgrow="ALWAYS">
                <children>
-                  <TableView fx:id="clients_table" layoutX="55.0" layoutY="40.0" prefHeight="399.0" prefWidth="939.0" stylesheets="@table.css">
+                  <TableView fx:id="clients_table" layoutX="47.0" layoutY="40.0" prefHeight="374.0" prefWidth="939.0" styleClass="clients-list" stylesheets="@clients_list.css">
                     <columns>
                       <TableColumn fx:id="col_name" prefWidth="126.00000381469727" styleClass="columns" text="Name" />
                         <TableColumn fx:id="col_chapter" prefWidth="121.33334350585938" styleClass="columns" text="Chapter" />
@@ -102,18 +61,18 @@
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
                   </TableView>
-                  <Button fx:id="create_new_client" layoutX="31.0" layoutY="464.0" mnemonicParsing="false" onAction="#add_client_btn" prefHeight="36.0" prefWidth="100.0" styleClass="new_client_btn" stylesheets="@clients_list.css" text="New Client" />
-              <Label fx:id="greeting" alignment="CENTER" layoutX="22.0" layoutY="13.0" prefHeight="27.0" prefWidth="136.0" style="&#10;" text=" " textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
-                <font>
-                  <Font size="18.0" />
-                </font>
-              </Label>
-                  <Label fx:id="current_time" layoutX="179.0" layoutY="13.0" prefHeight="27.0" prefWidth="119.0" text=" " />
+                  <Button fx:id="create_new_client" layoutX="221.0" layoutY="457.0" mnemonicParsing="false" onAction="#add_client_btn" prefHeight="25.0" prefWidth="110.0" styleClass="new_client_btn" stylesheets="@clients_list.css" text="New Client" />
                   <Label fx:id="disp_name" layoutX="510.0" layoutY="446.0" prefHeight="25.0" prefWidth="119.0" text=" " />
                   <Label fx:id="disp_status" layoutX="629.0" layoutY="446.0" prefHeight="25.0" prefWidth="119.0" text=" " />
-                  <Button fx:id="delete_btn" layoutX="148.0" layoutY="464.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="100.0" styleClass="delete_btn" stylesheets="@clients_list.css" text="Delete" />
-                  <Button fx:id="biling_btn" layoutX="378.0" layoutY="464.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="100.0" styleClass="billing_btn" stylesheets="@clients_list.css" text="Biling" />
-            <Button fx:id="edit_btn" layoutX="263.0" layoutY="464.0" mnemonicParsing="false" onAction="#editClient" prefHeight="36.0" prefWidth="100.0" styleClass="billing_btn" stylesheets="@clients_list.css" text="Edit" />
+                  <Button fx:id="delete_btn" layoutX="342.0" layoutY="457.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="92.0" styleClass="delete_btn" stylesheets="@clients_list.css" text="Delete" />
+                  <Button fx:id="biling_btn" layoutX="548.0" layoutY="456.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" styleClass="billing_btn" stylesheets="@clients_list.css" text="Biling" />
+            <Button fx:id="edit_btn" layoutX="445.0" layoutY="456.0" mnemonicParsing="false" onAction="#editClient" prefHeight="25.0" prefWidth="92.0" styleClass="billing_btn" stylesheets="@clients_list.css" text="Edit" />
+            <Text fill="WHITE" layoutX="70.0" layoutY="478.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Avail. Actions:" wrappingWidth="188.9999542236328">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+            </Text>
+            <Line endX="520.0" layoutX="474.0" layoutY="431.0" startX="-425.33331298828125" stroke="WHITE" />
                </children>
          <VBox.margin>
             <Insets />

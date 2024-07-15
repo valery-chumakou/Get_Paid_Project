@@ -1,88 +1,94 @@
 .body {
-    -fx-background-color: linear-gradient(to right, #6a83b2, #4f5c8e);
+    -fx-background-color: linear-gradient(#2c3e50, #4ca1af);
 }
 
 .add_btn {
-    -fx-text-fill:rgb(16, 50, 50);
-    -fx-font-family:"Comic Sans";
-    -fx-font-weight:bold;
-    -fx-font-size:12px;
-    -fx-background-color:linear-gradient(#6a83b2,#b4cbe6);
-    -fx-effect:dropshadow(three-pass-box, rgba(0,0,0,0.6),5,0.0,0,1);
+    -fx-text-fill:linear-gradient(#19909b,#17798a);
+    -fx-font-family: "Comic Sans";
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-background-color: #ffffff;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 3, 5, 1);
+    -fx-background-radius: 15;
 }
 .calculate_btn{
-    -fx-text-fill:rgb(16, 50, 50);
-    -fx-font-family:"Comic Sans";
-    -fx-font-weight:bold;
-    -fx-font-size:12px;
-    -fx-background-color:linear-gradient(#6a83b2,#b4cbe6);
-    -fx-effect:dropshadow(three-pass-box, rgba(0,0,0,0.6),5,0.0,0,1);
+    -fx-text-fill:linear-gradient(#19909b,#17798a);
+    -fx-font-family: "Comic Sans";
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-background-color: #ffffff;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 3, 5, 1);
+    -fx-background-radius: 15;
 }
 .generate_btn {
-    -fx-text-fill:rgb(16, 50, 50);
-    -fx-font-family:"Comic Sans";
-    -fx-font-weight:bold;
-    -fx-font-size:12px;
-    -fx-background-color:linear-gradient(#6a83b2,#b4cbe6);
-    -fx-effect:dropshadow(three-pass-box, rgba(0,0,0,0.6),5,0.0,0,1);
+    -fx-text-fill:linear-gradient(#19909b,#17798a);
+    -fx-font-family: "Comic Sans";
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-background-color: #ffffff;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 3, 5, 1);
+    -fx-background-radius: 15;
 }
 
 .excel_btn {
-    -fx-text-fill:rgb(16, 50, 50);
-    -fx-font-family:"Comic Sans";
-    -fx-font-weight:bold;
-    -fx-font-size:12px;
-    -fx-background-color:linear-gradient(#6a83b2,#b4cbe6);
-    -fx-effect:dropshadow(three-pass-box, rgba(0,0,0,0.6),5,0.0,0,1);
+    -fx-text-fill:linear-gradient(#19909b,#17798a);
+    -fx-font-family: "Comic Sans";
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-background-color: #ffffff;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 3, 5, 1);
+    -fx-background-radius: 15;
 }
 
 .out_lbl {
-    -fx-text-fill:rgb(16, 50, 50);
+    -fx-text-fill: #ffffff;
     -fx-font-family:"Comic Sans";
     -fx-font-weight:bold;
     -fx-text-alignment: CENTER;
     -fx-font-size:17px;
 }
 .outst_amount {
-    -fx-text-fill: #9f9f9f;
+    -fx-text-fill:#ffffff;
     -fx-font-size: 18px;
     -fx-font-family: Arial;
     -fx-text-alignment: CENTER;
 }
 .rate_lbl {
-    -fx-text-fill: #9f9f9f;
+    -fx-text-fill: #ffffff;
     -fx-font-size: 18px;
     -fx-font-family: Arial;
     -fx-text-alignment: CENTER;-fx-font-family: "Comic Sans";
      
 }
 .time_lbl {
-    -fx-text-fill: #9f9f9f;
+    -fx-text-fill: #ffffff; 
     -fx-font-size: 18px;
     -fx-font-family: Arial;
     -fx-text-alignment: CENTER;
 }
 
 .combo_btn {
-    -fx-text-fill:rgb(16, 50, 50);
-    -fx-font-family:"Comic Sans";
-    -fx-font-weight:bold;
-    -fx-font-size:12px;
-    -fx-background-color:linear-gradient(#6a83b2,#b4cbe6);
-    -fx-effect:dropshadow(three-pass-box, rgba(0,0,0,0.6),5,0.0,0,1);
+    -fx-text-fill:linear-gradient(#19909b,#17798a);
+    -fx-font-color: #19909b,#17798a;
+    -fx-font-family: "Comic Sans";
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-background-color: #ffffff;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 3, 5, 1);
+    -fx-background-radius: 15;
 }
 
 .table_view {
-    -fx-background-color: linear-gradient(#6a83b2,#b4cbe6);
+    -fx-background-color: linear-gradient(#2c3e50, #4ca1af);
     -fx-background-radius: 7px;
     -fx-background-color: transparent;
     -fx-border-width: 5px;
-    -fx-border-color: transparent transparent #6a83b2 transparent;
+    -fx-border-color: transparent transparent #2c3e50 transparent;
 }
 
 .column-header {
-    -fx-background-color: linear-gradient(#6a83b2,#b4cbe6);
+    -fx-background-color: linear-gradient(#2c3e50, #4ca1af);
     -fx-border-width: 2px;
-    -fx-border-color: transparent transparent #6a83b2 transparent;
+    -fx-border-color: transparent transparent #2c3e50 transparent;
 
 }

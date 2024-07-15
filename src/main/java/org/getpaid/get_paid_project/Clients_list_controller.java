@@ -146,26 +146,26 @@ public class Clients_list_controller implements Initializable {
         clientsList.add(newClient);
     }
 
-    public void displayCurrentTime() {
-        LocalTime currentTime = LocalTime.now();
-        current_time.setText(currentTime.truncatedTo(ChronoUnit.MINUTES).toString());
-    }
+//    public void displayCurrentTime() {
+//        LocalTime currentTime = LocalTime.now();
+//        current_time.setText(currentTime.truncatedTo(ChronoUnit.MINUTES).toString());
+//    }
 
-    public void displayGreeting() {
-        if (greeting != null) {
-            LocalTime currentTime = LocalTime.now();
-            if (currentTime.isAfter(LocalTime.of(0, 0)) &&
-                    currentTime.isBefore(LocalTime.of(12, 0))) {
-                greeting.setText("Good morning");
-            } else if (currentTime.isAfter(LocalTime.of(12, 0)) &&
-                    currentTime.isBefore(LocalTime.of(18, 0))) {
-                greeting.setText("Good afternoon");
-            } else {
-                greeting.setText("Good evening");
+//    public void displayGreeting() {
+//        if (greeting != null) {
+//            LocalTime currentTime = LocalTime.now();
+//            if (currentTime.isAfter(LocalTime.of(0, 0)) &&
+//                    currentTime.isBefore(LocalTime.of(12, 0))) {
+//                greeting.setText("Good morning");
+//            } else if (currentTime.isAfter(LocalTime.of(12, 0)) &&
+//                    currentTime.isBefore(LocalTime.of(18, 0))) {
+//                greeting.setText("Good afternoon");
+//            } else {
+//                greeting.setText("Good evening");
+//
+//            }
+//        }
 
-            }
-        }
-    }
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -180,10 +180,10 @@ public class Clients_list_controller implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        displayGreeting();
+//        displayGreeting();
         populateTable();
         timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
-            displayCurrentTime();
+//            displayCurrentTime();
         }));
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();

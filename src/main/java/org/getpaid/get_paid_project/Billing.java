@@ -22,7 +22,10 @@ public class Billing {
         this.officeNo = officeNo;
         this.date = LocalDate.now();
     }
-
+    public double getAmount() {
+        // Return the amount of this billing
+        return 0.0; // or some other amount
+    }
     public Billing () {
 
     }
